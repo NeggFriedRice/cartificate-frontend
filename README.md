@@ -13,5 +13,5 @@ Type in your activity, the cost and any extra notes and submit and you're done! 
 - Add image functionality to upload receipts
 
 ### Screenshots
-![Screen1](./src/assets/screen1.png)
-![Screen2](./src/assets/screen2.png)
+![Screen1](./src/assets/home.png)
+![Screen2](./src/assets/add.png)
