@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
 
+function dateMod(date) {
+  return date.split('T')[0]
+}
+
 const ShowUpdate = ({ updates }) => {
   return (
     <>
@@ -13,7 +17,7 @@ const ShowUpdate = ({ updates }) => {
                   <h3>${update.cost}</h3>
                 </div>
               </Link>
-            <p className="update-display">{update.date}</p>
+            <p className="update-display">{dateMod(update.date)}</p>
           </li>)}
       </ul>
     </div>
