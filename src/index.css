@@ -20,15 +20,15 @@
   
 }
 
-.navbar-brand {
+/* .navbar-brand {
   width: 100%;
 }
 
 .navbar {
-  width: 500px;
+  width: 80vw;
   background-color: rgb(27, 113, 97);
   border-radius: 0 0 30px 30px; 
-}
+} */
 
 .navbar-item, .navbar-link:focus, .navbar-link:focus-within, a.navbar-item.is-active, a.navbar-item:focus, a.navbar-item:focus-within {
   color: white;

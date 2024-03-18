@@ -5,12 +5,15 @@ import UpdateForm from './components/UpdateForm'
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom'
 import ShowUpdate from './components/ShowUpdate'
 import NavBar from './components/NavBar'
+import Login from './components/Login'
 import SingleUpdate from './components/SingleUpdate'
 
 
 function App() {
 
   const [updates, setUpdates] = useState([])
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
     fetch('http://localhost:4002/updates')
@@ -73,6 +76,7 @@ function App() {
           <Route path='/' element={<ShowUpdate updates={updates}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm setUpdates={setUpdates} updates={updates} addUpdate={addUpdate}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate} updates={updates} setUpdates={setUpdates}/>} />
+          <Route path='/login' element={<Login />}/>
           
         </Routes>
       </BrowserRouter>
