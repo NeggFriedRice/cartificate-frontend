@@ -1,11 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
-const NavBar = ({user, setUser}) => {
+const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
+
+  const navigate = useNavigate()
 
   async function logOut() {
     sessionStorage.clear()
     setUser(null)
+    setIsLoggedIn(false)
+    getUpdates()
+    navigate('/')
   } 
 
   function getUser() {
