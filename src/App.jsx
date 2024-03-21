@@ -14,12 +14,15 @@ function App() {
   const [updates, setUpdates] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
+  const [deleted, setDeleted] = useState(false)
 
   useEffect(() => {
     fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates')
       .then(data => data.json())
       .then(updates => setUpdates(updates))
-    }, [])
+    
+      setDeleted(false)
+    }, [deleted])
 
 
   async function deleteUpdate(id) {
@@ -29,10 +32,15 @@ function App() {
     await fetch(import.meta.env.VITE_BACKEND_API_URL+`/updates/${id}`)
     .then(data => data.json())
     .then(response => toDeleteUpdateId = response._id)
-    
-    console.log(toDeleteUpdateId)
 
-    await fetch(`http://localhost:4002/updates/${toDeleteUpdateId}`, {method: 'DELETE'})
+    const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+`/updates/${toDeleteUpdateId}`, {method: 'DELETE'})
+    if(response.status == 204) {
+      setDeleted(true)
+    }
+    else {
+      alert("Couldn't delete update")
+    }
+
   }
 
   // Add new upate to database

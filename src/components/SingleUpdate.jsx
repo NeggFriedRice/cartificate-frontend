@@ -18,11 +18,7 @@ const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
     }, [])
 
     function deleteHandler() {
-        console.log("button clicked")
-        let updatesArray = updates
-        updatesArray.splice(id, 1)
-        setUpdates(updatesArray)
-        deleteUpdate(id)
+       deleteUpdate(id)
         nav('/')
     }
 
