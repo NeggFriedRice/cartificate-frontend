@@ -37,6 +37,7 @@ export default function Login({setUser}) {
             sessionStorage.setItem('accessToken', data.accessToken)
             sessionStorage.setItem('user', JSON.stringify(data.user))
             setUser(sessionStorage.getItem('user'))
+            navigate('/')
         } catch (error) {
             console.log(error)
         }
