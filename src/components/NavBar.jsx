@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = ({user}) => {
   return (
     <>
-      <nav className="navbar w-[40vw] bg-teal-800 rounded-b-[25px]" role="navigation">
+      <nav className="navbar w-[80vw] bg-teal-800 rounded-b-[25px]" role="navigation">
         <div className="navbar-brand">
             <Link to="/" className="navbar-item">
               <p>CARtificate</p>
@@ -11,9 +11,9 @@ const NavBar = () => {
             <Link to="/updates/new" className="navbar-item">
               <p>Add</p>
             </Link>
-            <Link to="/login" className="navbar-item">
+            {!user && <Link to="/login" className="navbar-item">
               <p>Login</p>
-            </Link>
+            </Link>}
         </div>
 
         <div id="navbarBasicExample" className="navbar-menu">

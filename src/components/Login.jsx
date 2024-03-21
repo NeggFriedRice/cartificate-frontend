@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function Login() {
+export default function Login({setUser}) {
 
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -29,11 +29,14 @@ export default function Login() {
                 },
                 body: JSON.stringify(formData)
             })
-            // if (!response.ok) {
-            //     throw new Error("Incorrect username or password")
-            // }
-            // const data = await response.json()
-            // console.log(data)
+            if (!response.ok) {
+                throw new Error("Incorrect username or password")
+            }
+            const data = await response.json()
+            console.log(data)
+            sessionStorage.setItem('accessToken', data.accessToken)
+            sessionStorage.setItem('user', JSON.stringify(data.user))
+            setUser(sessionStorage.getItem('user'))
         } catch (error) {
             console.log(error)
         }
