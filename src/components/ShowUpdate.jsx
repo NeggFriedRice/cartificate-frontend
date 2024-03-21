@@ -11,7 +11,7 @@ const ShowUpdate = ({ updates }) => {
       <ul>
         {updates.map((update, index) => 
           <li key={index}>
-              <Link to={`updates/${index}`}>
+              <Link to={`updates/${update._id}`}>
                 <div className="update-homepage">
                   <h3 className="update-link">{index + 1}. {update.activity}</h3>
                   <h3>${update.cost}</h3>

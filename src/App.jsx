@@ -66,7 +66,7 @@ function App() {
 
   const UpdateWrapper = ({deleteUpdate}) => {
     const { id } = useParams()
-    return <SingleUpdate update={updates[id]} id={id} deleteUpdate={deleteUpdate} updates={updates} setUpdates={setUpdates}/>
+    return <SingleUpdate id={id} deleteUpdate={deleteUpdate} updates={updates} setUpdates={setUpdates}/>
   }
 
 
@@ -77,7 +77,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ShowUpdate updates={updates}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm setUpdates={setUpdates} updates={updates} addUpdate={addUpdate}/>}></Route>
-          <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate} updates={updates} setUpdates={setUpdates}/>} />
+          <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
           <Route path='/login' element={<Login setUser={ setUser }/>}/>
         </Routes>
       </BrowserRouter>

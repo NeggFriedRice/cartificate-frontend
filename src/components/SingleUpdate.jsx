@@ -1,9 +1,21 @@
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-const SingleUpdate = ({ update, id, deleteUpdate, updates, setUpdates }) => {
+const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
 
     const nav = useNavigate()
+    const [entry, setEntry] = useState("")
+
+    async function getSingleUpdate() {
+        await fetch(import.meta.env.VITE_BACKEND_API_URL+`/updates/${id}`)
+        .then(response => response.json())
+        .then(data => setEntry(data))
+    }
+
+    useEffect(() => {
+        getSingleUpdate()
+    }, [])
 
     function deleteHandler() {
         console.log("button clicked")
@@ -20,13 +32,13 @@ const SingleUpdate = ({ update, id, deleteUpdate, updates, setUpdates }) => {
                 <ul>
                     <li>
                         <div className="update-title">
-                            <h3 className="update-link">{parseInt(id) + 1}. {update.activity}</h3>
+                            <h3 className="update-link">{entry.activity}</h3>
                             <button className="delete-entry" onClick={deleteHandler}>Delete entry</button>
                         </div>
-                        <h3>${update.cost}</h3>
-                        <h5 className="update-display">{update.date}</h5>
+                        <h3>${entry.cost}</h3>
+                        <h5 className="update-display">{entry.date}</h5>
                         <p className="update-notes">Notes:</p>
-                        <p className="update-display">{update.notes}</p>
+                        <p className="update-display">{entry.notes}</p>
                     </li>
                 </ul>
             </div>
