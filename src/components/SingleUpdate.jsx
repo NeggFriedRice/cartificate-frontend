@@ -31,15 +31,15 @@ const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
             <div className="container">
                 <ul>
                     <li>
-                        <div className="update-title">
-                            <h3 className="update-link">{entry.activity}</h3>
+                        <div >
+                            <h3 >{entry.activity}</h3>
                             <button className="delete-entry" onClick={deleteHandler}>Delete entry</button>
                         </div>
                         <h3>${entry.cost}</h3>
-                        {entry && <h5 className="update-display">{dateMod(entry.date)}</h5>}
+                        {entry && <h5>{dateMod(entry.date)}</h5>}
                         
-                        <p className="update-notes">Notes:</p>
-                        <p className="update-display">{entry.notes}</p>
+                        <p>Notes:</p>
+                        <p>{entry.notes}</p>
                     </li>
                 </ul>
             </div>

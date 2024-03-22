@@ -49,9 +49,11 @@ function App() {
   useEffect(() => {
       getUpdates()
       getUser()
-      filterUpdates()
-    }, [updates])
+    }, [])
 
+  useEffect(() => {
+    filterUpdates()
+  }, [updates])
 
   async function deleteUpdate(id) {
     let toDeleteUpdateId = null
