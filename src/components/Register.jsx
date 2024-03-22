@@ -21,6 +21,10 @@ export default function Register() {
 
     async function submitHandler(event) {
         event.preventDefault()
+        if (formData.password !== formData.confirmPassword) {
+            alert("Your passwords are still not matching!")
+            return
+        }
         // Make a call to backend with the form data
         try {
             const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+'/auth/register', {
@@ -30,14 +34,10 @@ export default function Register() {
                 },
                 body: JSON.stringify(formData)
             })
-            const data = await response.json()
-            if (data.response == 400) {
-                alert("Something went wrong!")
-            } else {
+            if (response.ok) {
+                console.log("User successfully registered")
                 navigate('/login')
             }
-            
-            navigate('/')
         } catch (error) {
             console.log(error)
         }

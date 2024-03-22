@@ -35,7 +35,8 @@ const ShowUpdate = ({ updates, user }) => {
     <>
     <div className="log-container">
       <ul>
-        {filtered ? filtered.map((update, index) => 
+        {!filtered || filtered.length == 0 ? <p>Add something to your list!</p> :
+        filtered.map((update, index) => 
           <li key={index}>
               <Link to={`updates/${update._id}`}>
                 <div className="update-homepage">
@@ -44,7 +45,7 @@ const ShowUpdate = ({ updates, user }) => {
                 </div>
               </Link>
             <p className="update-display">{dateMod(update.date)}</p>
-          </li>) : <p>Add something to your list!</p>}
+          </li>)}
       </ul>
     </div>
     </>
