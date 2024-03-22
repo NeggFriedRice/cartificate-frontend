@@ -19,16 +19,18 @@
   
 }
 
-/* .navbar-brand {
-  width: 100%;
+input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+  padding: 0px;
+  margin: 10px;
+  margin-left: auto;
 }
 
-.navbar {
-  width: 80vw;
-  background-color: rgb(27, 113, 97);
-  border-radius: 0 0 30px 30px; 
-} */
-
+.custom-inpt {
+  padding: 10px !important;
+}
 
 body {
   margin: 0;
@@ -41,32 +43,6 @@ body {
 
 .textarea {
   border-radius: 0% 15px 15px 15px;
-}
-
-.react-datepicker-wrapper > div > input[type=text] {
-  background-color: rgb(131, 189, 159);
-  font-size: 1.5rem;
-  border-radius: 2em;
-  border: none;
-  padding-left: 1rem;
-}
-
-#root > form > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div {
-  min-width: 280px;
-  background-color: rgb(209, 235, 225);
-  border-radius: 1rem;
-
-}
-
-#root > form > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div > div.react-datepicker__header {
-  border-radius: 1rem;
-  border-color: rgb(79, 140, 135);
-}
-
-.react-datepicker {
-  border-color: rgb(79, 140, 135);
-  border-width: 3px;
-  border-radius: 1rem;
 }
 
 .textarea {

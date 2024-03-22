@@ -61,7 +61,7 @@ const EditForm = ({ id, setEdited }) => {
 			<div className="flex justify-center bg-[#99d3cf] my-8 rounded-[15px] shadow-block-md shadow-setPurpleDark">
 			<form onSubmit={submitHandler} className="w-[100%] px-8">
 				<div className="my-4">
-				<h2 className="text-[2rem] text-setPurpleLight font-semibold">Update existing entry</h2>
+				<h2 className="text-[2rem] text-setPurpleLight font-semibold">Update entry</h2>
 				<h2 className={headingFormat}>Activity type</h2>
 				<input className={inputFormat} type="text" name="activity" placeholder="Oil change, replaced brake rotors" value={activity.activity} onChange={changeHandler}/>
 				</div>
