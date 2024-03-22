@@ -8,6 +8,7 @@ import NavBar from './components/NavBar'
 import Login from './components/Login'
 import SingleUpdate from './components/SingleUpdate'
 import Register from './components/Register'
+import EditForm from './components/EditForm'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
   const [deleted, setDeleted] = useState(false)
+  const [edited, setEdited] = useState(false)
   const [filtered, setFiltered] = useState(null)
 
   async function getUpdates() {
@@ -49,11 +51,11 @@ function App() {
   useEffect(() => {
       getUpdates()
       getUser()
-    }, [deleted])
+    }, [deleted, edited])
 
   useEffect(() => {
     filterUpdates()
-  }, [updates, user, deleted])
+  }, [updates, user, deleted, edited])
 
   async function deleteUpdate(id) {
     let toDeleteUpdateId = null
@@ -102,7 +104,12 @@ function App() {
 
   const UpdateWrapper = ({deleteUpdate}) => {
     const { id } = useParams()
-    return <SingleUpdate id={id} deleteUpdate={deleteUpdate} updates={updates} setUpdates={setUpdates}/>
+    return <SingleUpdate id={id} deleteUpdate={deleteUpdate} updates={updates} setUpdates={setUpdates} />
+  }
+
+  const EditWrapper = () => {
+    const { id } = useParams()
+    return <EditForm id={id} setEdited={setEdited} />
   }
 
 
@@ -114,6 +121,7 @@ function App() {
           <Route path='/' element={<ShowUpdate updates={updates} user={user} filtered={filtered}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm setUpdates={setUpdates} updates={updates} addUpdate={addUpdate}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
+          <Route path='/updates/edit/:id' element={<EditWrapper />} />
           <Route path='/login' element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>} />
           <Route path='/register' element={<Register />} />
         </Routes>

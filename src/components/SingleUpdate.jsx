@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
 
-    const nav = useNavigate()
+    const navigate = useNavigate()
     const [entry, setEntry] = useState("")
 
     function dateMod(date) {
@@ -23,7 +23,11 @@ const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
 
     function deleteHandler() {
        deleteUpdate(id)
-        nav('/')
+        navigate('/')
+    }
+
+    function navToEdit() {
+        navigate(`/updates/edit/${id}`)
     }
 
     return (
@@ -31,9 +35,12 @@ const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
             <div className="flex justify-center animate-floatxs">
                 <ul className="py-8">
                     <li className="bg-setPeach w-[350px] rounded-r-[15px] rounded-bl-[15px] p-4 shadow-block-md shadow-setPurpleDark lg:w-[700px] lg:py-6">
-                        <div className="flex justify-between py-4">
-                            <h3 className="text-[1.5rem] text-setPurpleDark">{entry.activity}</h3>
-                            <button type="button" className="bg-red-500 rounded-lg px-2 text-sm h-[30px] m-4" onClick={deleteHandler}>Delete</button>
+                        <div className="grid grid-cols-3 py-4">
+                            <h3 className="text-[1.5rem] text-setPurpleDark col-span-2">{entry.activity}</h3>
+                            <div className="flex flex-wrap">
+                                <button type="button" className="bg-teal-500 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1" onClick={navToEdit}>Edit</button>
+                                <button type="button" className="bg-red-500 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1" onClick={deleteHandler}>Delete</button>
+                            </div>
                         </div>
                         <div className="text-setPurpleDark py-4">
                             <h3 className="text-[1.25rem]">Cost: <span className="text-setPurpleLight">${entry.cost}</span></h3>

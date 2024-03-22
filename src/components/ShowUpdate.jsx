@@ -19,9 +19,9 @@ const ShowUpdate = ({ updates, filtered, user }) => {
             </div> 
             :
             filtered.map((update, index) => 
-            <div className="animate-floatxs">
+            <div className="animate-floatxs" key={index}>
               <Link to={`updates/${update._id}`}>
-                <li key={index} className="py-3">
+                <li className="py-3">
                   <div className="bg-setPeach p-2 rounded-r-[15px] rounded-bl-[15px] text-setPurpleDark shadow-block-smmd shadow-setPurpleDark lg:w-[700px] lg:py-6">
                     
                       <div className="grid grid-cols-3 mx-2">
