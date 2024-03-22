@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
+const SingleUpdate = ({ id, deleteUpdate }) => {
 
     const navigate = useNavigate()
     const [entry, setEntry] = useState("")

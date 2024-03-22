@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-const ShowUpdate = ({ updates, filtered, user }) => {
+const ShowUpdate = ({ filtered }) => {
 
   function dateMod(date) {
     return date.split('T')[0]
