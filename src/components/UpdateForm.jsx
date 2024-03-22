@@ -22,6 +22,7 @@ const UpdateForm = ({updates, addUpdate}) => {
     let { name, value } = event.target
     setActivity({...activity,
       [name]: value})
+      console.log(activity)
   }
   
   function dateMod(string) {
@@ -61,7 +62,7 @@ const UpdateForm = ({updates, addUpdate}) => {
               name='date'
               id='date'
               pattern='\d{4}-\d{2}-\d{2}'
-              value={updates.date}
+              value={activity.date}
               onChange={changeHandler}
               className={inputFormat}
               placeholder=''
@@ -78,7 +79,7 @@ const UpdateForm = ({updates, addUpdate}) => {
         </div>
         <h2 className={headingFormat}>Extra notes</h2>
         <div className="flex flex-col my-4">
-          <textarea className="textarea bg-white mb-4" rows="10" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
+          <textarea className="textarea bg-white mb-4 text-black" rows="10" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
           <div className="flex justify-center">
            <button className="bg-green-800 w-[50%] rounded-full py-2" type="submit">Submit</button>
           </div>
