@@ -59,11 +59,11 @@ export default {
         '2s': '2s',
       },
       boxShadow: {
-        'block-xs': '0.25rem 0.25rem black',
-        'block-sm': '0.5rem 0.5rem black',
-        'block-smmd': '0.75rem 0.75rem black',
+        'block-xs': '0.25rem 0.25rem',
+        'block-sm': '0.5rem 0.5rem',
+        'block-smmd': '0.75rem 0.75rem',
         'block-md': '1rem 1rem',
-        'block-lg': '1.5rem 1.5rem black',
+        'block-lg': '1.5rem 1.5rem',
       },
       colors: {
         setPurpleDark: '#583D72',
