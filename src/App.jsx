@@ -38,16 +38,18 @@ function App() {
   // Add new upate to database
   async function addUpdate(content) {
     const newId = updates.length
+    const user = JSON.parse(sessionStorage.getItem('user'))
     // Create new entry object from content data
     const newUpdate = {
       activity: content.activity,
       date: content.date,
       cost: content.cost,
-      notes: content.notes
+      notes: content.notes,
+      createdBy: user
     }
     
     // Send post request to server
-    const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+'/new', {
+    const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates/new', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -71,13 +73,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar user={user}/>
+        <NavBar user={user} setUser={setUser}/>
         <Routes>
           <Route path='/' element={<ShowUpdate updates={updates}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm setUpdates={setUpdates} updates={updates} addUpdate={addUpdate}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate} updates={updates} setUpdates={setUpdates}/>} />
           <Route path='/login' element={<Login setUser={ setUser }/>}/>
-          
         </Routes>
       </BrowserRouter>
       

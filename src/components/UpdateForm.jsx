@@ -7,6 +7,7 @@ const UpdateForm = ({updates, addUpdate}) => {
 
   const nav = useNavigate()
   const currentDate = new Date().toISOString().split('T')[0]
+  const [date, setDate] = useState(new Date())
 
   let initialEntry = {
     activity: "",
@@ -34,7 +35,6 @@ const UpdateForm = ({updates, addUpdate}) => {
     activity.date = dateMod(date)
     await addUpdate(activity)
     console.log(activity)
-    console.log(updates.length)
     nav('/')
   }
 
@@ -42,8 +42,7 @@ const UpdateForm = ({updates, addUpdate}) => {
     event.preventDefault()
     console.log(activity)
   }
-    
-  const [date, setDate] = useState(new Date())
+
 
   return (
     <>
