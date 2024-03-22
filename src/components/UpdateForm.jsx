@@ -61,10 +61,9 @@ const UpdateForm = ({updates, addUpdate}) => {
                     pattern='\d{4}-\d{2}-\d{2}'
                     value={updates.date}
                     onChange={changeHandler}
-                    className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5'
+                    className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5'
                     placeholder=''
                     required=''
-                    min={currentDate}
                 />
             </div>
         <h2>Cost</h2>
@@ -87,7 +86,7 @@ const UpdateForm = ({updates, addUpdate}) => {
         <textarea className="textarea" rows="10" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
         <button className="button is-primary is-light" type="submit">Submit</button>        
       </form>
-      <button className="button is-primary is-light" onClick={showUpdates}>Console Log updates</button>
+      {/* <button className="button is-primary is-light" onClick={showUpdates}>Console Log updates</button> */}
     </>
   )
 }

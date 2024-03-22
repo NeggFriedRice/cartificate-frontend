@@ -19,24 +19,30 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
 
   return (
     <>
-      <nav className="navbar w-[80vw] bg-teal-800 rounded-b-[25px]" role="navigation">
-        <div className="navbar-brand">
-            <Link to="/" className="navbar-item">
-              <button className="bg-transparent">CARtificate</button>
+    <div className="flex justify-center">
+      <nav className="w-[80vw] bg-teal-800 rounded-b-[25px]" role="navigation">
+        <div className="flex justify-between py-2 px-4 text-sm">
+          <div className="flex">
+            <Link to="/">
+              <button className="text-white px-2 ">CARtificate</button>
             </Link>
-            <Link to="/updates/new" className="navbar-item">
-              <button className="bg-transparent">Add</button>
-            </Link>
-            {!user && <Link to="/login" className="navbar-item">
-              <button className="bg-transparent">Login</button>
+            {user && <Link to="/updates/new">
+              <button className="text-white px-2">Add</button>
             </Link>}
-            {user && <button type="button" onClick={logOut} className="text-white">Sign out</button>}
-            <Link to="/register" className="navbar-item">
-              <button className="bg-transparent">Sign up</button>
-            </Link>
-            <button type="button" onClick={getUser}>Get User details</button>
+          </div>
+          <div className="flex">
+            {!user && <Link to="/login">
+              <button  className="text-white px-2">Login</button>
+            </Link>}
+            {user && <button type="button" onClick={logOut} className="text-white px-2">Sign out</button>}
+            {!user && <Link to="/register">
+              <button  className="text-white px-2">Sign up</button>
+            </Link>}
+            {/* <button type="button" onClick={getUser}>Get User details</button> */}
+          </div>
         </div>
       </nav>
+      </div>
     </>
   )
 }
