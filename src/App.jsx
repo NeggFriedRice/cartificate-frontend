@@ -13,7 +13,6 @@ import EditForm from './components/EditForm'
 
 function App() {
 
-  const [updates, setUpdates] = useState([])
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
   const [deleted, setDeleted] = useState(false)
@@ -23,7 +22,7 @@ function App() {
   async function getUpdates() {
     await fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates')
     .then(data => data.json())
-    .then(updates => setUpdates(updates))
+    .then(updates => filterUpdates(updates))
   }
 
   function getUser() {
@@ -39,7 +38,7 @@ function App() {
     }
   }
 
-  async function filterUpdates() {
+  async function filterUpdates(updates) {
     try {
       const filteredUpdates = updates.filter(filterByUser)
       setFiltered(filteredUpdates)
@@ -51,11 +50,7 @@ function App() {
   useEffect(() => {
       getUpdates()
       getUser()
-    }, [deleted, edited])
-
-  useEffect(() => {
-    filterUpdates()
-  }, [updates, user, deleted, edited])
+    }, [deleted, edited, user])
 
   async function deleteUpdate(id) {
     let toDeleteUpdateId = null
@@ -75,7 +70,6 @@ function App() {
 
   // Add new upate to database
   async function addUpdate(content) {
-    const newId = updates.length
     const user = JSON.parse(sessionStorage.getItem('user'))
     // Create new entry object from content data
     const newUpdate = {
@@ -87,6 +81,7 @@ function App() {
     }
     
     // Send post request to server
+    try {
     const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates/new', {
       method: 'POST',
       headers: {
@@ -97,14 +92,15 @@ function App() {
     const data = await response.json()
     console.log(JSON.stringify(newUpdate))
     console.log(data)
-
-    setUpdates([...updates, data])
-    return newId
+    getUpdates()
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   const UpdateWrapper = ({deleteUpdate}) => {
     const { id } = useParams()
-    return <SingleUpdate id={id} deleteUpdate={deleteUpdate} updates={updates} setUpdates={setUpdates} />
+    return <SingleUpdate id={id} deleteUpdate={deleteUpdate}/>
   }
 
   const EditWrapper = () => {
@@ -112,21 +108,19 @@ function App() {
     return <EditForm id={id} setEdited={setEdited} />
   }
 
-
   return (
     <>
       <BrowserRouter>
         <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>
         <Routes>
-          <Route path='/' element={<ShowUpdate updates={updates} user={user} filtered={filtered}/>}></Route>
-          <Route path="/updates/new" element={<UpdateForm setUpdates={setUpdates} updates={updates} addUpdate={addUpdate}/>}></Route>
+          <Route path='/' element={<ShowUpdate user={user} filtered={filtered}/>}></Route>
+          <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
           <Route path='/updates/edit/:id' element={<EditWrapper />} />
           <Route path='/login' element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>} />
           <Route path='/register' element={<Register />} />
         </Routes>
       </BrowserRouter>
-      
     </>
   )
 }

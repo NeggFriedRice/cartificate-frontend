@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useNavigate } from 'react-router-dom'
 
-const UpdateForm = ({updates, addUpdate}) => {
+const UpdateForm = ({ addUpdate }) => {
 
   const nav = useNavigate()
   const currentDate = new Date().toISOString().split('T')[0]
