@@ -16,17 +16,19 @@ function App() {
   const [user, setUser] = useState(null)
   const [deleted, setDeleted] = useState(false)
 
-  useEffect(() => {
+
+  function getUpdates() {
     fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates')
-      .then(data => data.json())
-      .then(updates => setUpdates(updates))
-    
-      setDeleted(false)
-    }, [deleted])
+    .then(data => data.json())
+    .then(updates => setUpdates(updates))
+  }
+
+  useEffect(() => {
+      getUpdates()
+    }, [])
 
 
   async function deleteUpdate(id) {
-
     let toDeleteUpdateId = null
 
     await fetch(import.meta.env.VITE_BACKEND_API_URL+`/updates/${id}`)
@@ -40,7 +42,6 @@ function App() {
     else {
       alert("Couldn't delete update")
     }
-
   }
 
   // Add new upate to database
@@ -81,12 +82,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar user={user} setUser={setUser}/>
+        <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>
         <Routes>
-          <Route path='/' element={<ShowUpdate updates={updates}/>}></Route>
+          <Route path='/' element={<ShowUpdate updates={updates} user={user}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm setUpdates={setUpdates} updates={updates} addUpdate={addUpdate}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
-          <Route path='/login' element={<Login setUser={ setUser }/>}/>
+          <Route path='/login' element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>}/>
         </Routes>
       </BrowserRouter>
       

@@ -1,15 +1,41 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
-function dateMod(date) {
-  return date.split('T')[0]
-}
+const ShowUpdate = ({ updates, user }) => {
 
-const ShowUpdate = ({ updates }) => {
+  const [filtered, setFiltered] = useState(null)
+  const [renderUpdate, setRenderUpdate] = useState(false)
+
+  const userObject = JSON.parse(user)
+
+  function dateMod(date) {
+    return date.split('T')[0]
+  }
+
+  function filterByUser(update) {
+    if (update.createdBy == userObject._id) {
+      return true
+    }
+  }
+
+  function filterUpdates() {
+    try {
+      const filteredUpdates = updates.filter(filterByUser)
+      setFiltered(filteredUpdates)
+    } catch (err) {
+      setFiltered(false)
+    }
+  }
+
+  useEffect(() => {
+    filterUpdates()
+  }, [user])
+
   return (
     <>
     <div className="log-container">
       <ul>
-        {updates.map((update, index) => 
+        {filtered ? filtered.map((update, index) => 
           <li key={index}>
               <Link to={`updates/${update._id}`}>
                 <div className="update-homepage">
@@ -18,7 +44,7 @@ const ShowUpdate = ({ updates }) => {
                 </div>
               </Link>
             <p className="update-display">{dateMod(update.date)}</p>
-          </li>)}
+          </li>) : <p>Add something to your list!</p>}
       </ul>
     </div>
     </>

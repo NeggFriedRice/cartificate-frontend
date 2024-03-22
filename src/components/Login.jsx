@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function Login({setUser}) {
+export default function Login({setUser, setIsLoggedIn}) {
 
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -37,6 +37,8 @@ export default function Login({setUser}) {
             sessionStorage.setItem('accessToken', data.accessToken)
             sessionStorage.setItem('user', JSON.stringify(data.user))
             setUser(sessionStorage.getItem('user'))
+            setIsLoggedIn(true)
+            
             navigate('/')
         } catch (error) {
             console.log(error)
