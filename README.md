@@ -26,7 +26,8 @@ This started as a practice project and as such was built only to run locally at 
 ### Screenshots
 
 ![Screen1](./src/assets/homepage.png)
-![Screen2](./src/assets/update-add.png)
-![Screen3](./src/assets/update-info.png)
+![Screen2](./src/assets/update-info.png)
+![Screen3](./src/assets/update-add.png)
+
 
 
