@@ -49,11 +49,11 @@ function App() {
   useEffect(() => {
       getUpdates()
       getUser()
-    }, [])
+    }, [deleted])
 
   useEffect(() => {
     filterUpdates()
-  }, [updates])
+  }, [updates, user, deleted])
 
   async function deleteUpdate(id) {
     let toDeleteUpdateId = null
@@ -64,7 +64,7 @@ function App() {
 
     const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+`/updates/${toDeleteUpdateId}`, {method: 'DELETE'})
     if(response.status == 204) {
-      setDeleted(true)
+      setDeleted(previousState => !previousState)
     }
     else {
       alert("Couldn't delete update")

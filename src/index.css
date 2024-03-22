@@ -39,51 +39,6 @@ body {
   min-height: 100vh;
 }
 
-
-
-.update-display {
-  max-width: 450px;
-  font-size: 1em;
-  margin: 0 1rem;
-  line-height: 1.1;
-  color: rgb(174, 226, 199);
-}
-
-
-.delete-entry {
-  font-size: 0.7em;
-  margin: 1rem;
-  line-height: 1.1;
-  color: rgb(255, 255, 255);
-}
-
-.update-notes {
-  font-size: 1.3em;
-  margin: 1rem;
-  line-height: 1.1;
-  color: rgb(255, 255, 255);
-}
-
-.update-link:hover {
-  color: rgb(187, 222, 195);
-  transition: 0.3s;
-}
-
-.update-title {
-  display: flex;
-  justify-content: space-between;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #1a1919;
-  }
-  a:hover {
-    color: #747bff;
-  }
-}
-
 .textarea {
   border-radius: 0% 15px 15px 15px;
 }
