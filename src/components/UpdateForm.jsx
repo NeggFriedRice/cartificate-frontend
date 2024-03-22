@@ -40,13 +40,14 @@ const UpdateForm = ({updates, addUpdate}) => {
   }
 
   const inputFormat = 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 text-setPurpleLight lg:mb-4 mt-4'
-  const headingFormat = 'block mb-2 text-sm font-medium text-setPurpleDark text-[1.25rem] lg:text-[1.5rem]'
+  const headingFormat = 'block mb-2 mt-4 text-sm font-medium text-setPurpleDark text-[1.25rem] lg:text-[1.5rem]'
 
   return (
     <>
     <div className="flex justify-center bg-setPeach my-8 rounded-[15px] shadow-block-md shadow-setPurpleDark">
       <form onSubmit={submitHandler} className="w-[100%] px-8">
         <div className="my-4">
+        <h2 className="text-[2rem] text-setPurpleLight font-semibold">Add new entry</h2>
           <h2 className={headingFormat}>Activity type</h2>
           <input className={inputFormat} type="text" name="activity" placeholder="Oil change, replaced brake rotors" value={activity.name} onChange={changeHandler}/>
         </div>
