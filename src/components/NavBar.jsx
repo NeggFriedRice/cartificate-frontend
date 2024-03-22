@@ -36,7 +36,7 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
             {!user && <Link to="/login">
               <button  className={navbarFormat}>Login</button>
             </Link>}
-            {user && <button type="button" onClick={logOut} className="text-white px-2 lg:text-[1.5rem]">Sign out</button>}
+            {user && <button type="button" onClick={logOut} className={navbarFormat}>Sign out</button>}
             {!user && <Link to="/register">
               <button  className={navbarFormat}>Sign up</button>
             </Link>}
