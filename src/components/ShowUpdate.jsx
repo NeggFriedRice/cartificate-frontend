@@ -3,32 +3,9 @@ import { useState, useEffect } from 'react'
 
 const ShowUpdate = ({ updates, filtered, user }) => {
 
-  // const [filtered, setFiltered] = useState(null)
-
-  // const userObject = JSON.parse(user)
-
   function dateMod(date) {
     return date.split('T')[0]
   }
-
-  // function filterByUser(update) {
-  //   if (update.createdBy == userObject._id) {
-  //     return true
-  //   }
-  // }
-
-  // function filterUpdates() {
-  //   try {
-  //     const filteredUpdates = updates.filter(filterByUser)
-  //     setFiltered(filteredUpdates)
-  //   } catch (err) {
-  //     setFiltered(false)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   filterUpdates()
-  // }, [user])
 
   return (
     <>
