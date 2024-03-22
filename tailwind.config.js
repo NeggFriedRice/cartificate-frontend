@@ -13,12 +13,12 @@ export default {
         'block-md': '1rem 1rem',
         'block-lg': '1.5rem 1.5rem black',
       },
-  },
-  colors: {
-    setPurpleDark: '#583D72',
-    setPurpleLight: '#9F5F80',
-    setCoral: '#FF8474',
-    setPeach: '#FFC996'
+      colors: {
+        setPurpleDark: '#583D72',
+        setPurpleLight: '#9F5F80',
+        setCoral: '#FF8474',
+        setPeach: '#FFC996'
+      },
   },
   plugins: [],
 }}

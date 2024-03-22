@@ -28,18 +28,19 @@ const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
 
     return (
         <>
-            <div className="container">
-                <ul>
-                    <li>
-                        <div >
-                            <h3 >{entry.activity}</h3>
-                            <button className="delete-entry" onClick={deleteHandler}>Delete entry</button>
+            <div className="flex justify-center">
+                <ul className="py-8">
+                    <li className="bg-setPeach w-[350px] rounded-r-[15px] rounded-bl-[15px] p-4 shadow-block-md shadow-setPurpleDark">
+                        <div className="flex justify-between py-4">
+                            <h3 className="text-[1.5rem] text-setPurpleDark">{entry.activity}</h3>
+                            <button type="button" className="bg-red-500 rounded-lg px-2 text-sm h-[30px] m-4" onClick={deleteHandler}>Delete</button>
                         </div>
-                        <h3>${entry.cost}</h3>
-                        {entry && <h5>{dateMod(entry.date)}</h5>}
-                        
-                        <p>Notes:</p>
-                        <p>{entry.notes}</p>
+                        <div className="text-setPurpleDark">
+                            <h3 className="text-[1.25rem]">Cost: <span className="text-setPurpleLight">${entry.cost}</span></h3>
+                            {entry && <h3 className="text-[1.25rem]">Date: <span className="text-setPurpleLight">{dateMod(entry.date)}</span></h3>}
+                            <p className="text-[1.25rem]">Notes:</p>
+                            <p><span className="text-setPurpleLight">{entry.notes}</span></p>
+                        </div>
                     </li>
                 </ul>
             </div>

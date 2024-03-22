@@ -22,12 +22,12 @@ const ShowUpdate = ({ updates, filtered, user }) => {
               <li key={index} className="py-3">
                 <div className="bg-setPeach p-2 rounded-r-[15px] rounded-bl-[15px] text-setPurpleDark shadow-block-smmd shadow-setPurpleDark">
                   <Link to={`updates/${update._id}`}>
-                    <div className="flex justify-between px-2">
-                      <h3 className="text-lg">{index + 1}. {update.activity}</h3>
-                      <h3>${update.cost}</h3>
+                    <div className="grid grid-cols-3 mx-2">
+                      <h3 className="text-lg col-span-2">{index + 1}. {update.activity}</h3>
+                      <h3 className="ml-auto">${update.cost}</h3>
                     </div>
                   </Link>
-                  <p className="text-gray-500 px-2">{dateMod(update.date)}</p>
+                  <p className="px-2 text-setPurpleLight text-sm">{dateMod(update.date)}</p>
                 </div>
               </li>)}
           </ul>
