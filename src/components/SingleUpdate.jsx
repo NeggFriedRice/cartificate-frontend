@@ -28,9 +28,9 @@ const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
 
     return (
         <>
-            <div className="flex justify-center">
+            <div className="flex justify-center animate-floatxs">
                 <ul className="py-8">
-                    <li className="bg-setPeach w-[350px] rounded-r-[15px] rounded-bl-[15px] p-4 shadow-block-md shadow-setPurpleDark">
+                    <li className="bg-setPeach w-[350px] rounded-r-[15px] rounded-bl-[15px] p-4 shadow-block-md shadow-setPurpleDark lg:w-[700px] lg:py-6">
                         <div className="flex justify-between py-4">
                             <h3 className="text-[1.5rem] text-setPurpleDark">{entry.activity}</h3>
                             <button type="button" className="bg-red-500 rounded-lg px-2 text-sm h-[30px] m-4" onClick={deleteHandler}>Delete</button>

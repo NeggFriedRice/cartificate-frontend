@@ -53,24 +53,23 @@ export default function Login({setUser, setIsLoggedIn}) {
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                     <form className="space-y-6 px-4"  onSubmit={submitHandler}>
-                    <div>
-                        <label className="block text-sm lg:text-[1.25rem] font-medium leading-6 text-setPurpleDark">Username</label>
-                        <div className="mt-2">
-                        <input id="email" name="username" onChange={changeHandler} required className="block w-full rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
+                        <div>
+                            <label className="block text-sm lg:text-[1.25rem] font-medium leading-6 text-setPurpleDark">Username</label>
+                            <div className="mt-2">
+                            <input id="email" name="username" onChange={changeHandler} required className="block w-full rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
+                            </div>
                         </div>
-                    </div>
-
-                    <div>
-                        <div className="flex items-center justify-between">
-                        <label className="block text-sm lg:text-[1.25rem] font-medium leading-6 text-setPurpleDark">Password</label>
+                        <div>
+                            <div className="flex items-center justify-between">
+                            <label className="block text-sm lg:text-[1.25rem] font-medium leading-6 text-setPurpleDark">Password</label>
+                            </div>
+                            <div className="mt-2">
+                            <input id="password" name="password" onChange={changeHandler} required className="block w-full rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
+                            </div>
                         </div>
-                        <div className="mt-2">
-                        <input id="password" name="password" onChange={changeHandler} required className="block w-full rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
+                        <div className="flex justify-center">
+                            <button type="submit" className="flex w-[50%] justify-center rounded-md transition-all duration-1000 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm animate-floatxs">Sign in</button>
                         </div>
-                    </div>
-                    <div className="flex justify-center">
-                        <button type="submit" className="flex w-[50%] justify-center rounded-md transition-all duration-1000 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3">Sign in</button>
-                    </div>
                     </form>
                 </div>
             </div>

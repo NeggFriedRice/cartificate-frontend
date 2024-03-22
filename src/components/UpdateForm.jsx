@@ -39,8 +39,8 @@ const UpdateForm = ({updates, addUpdate}) => {
     console.log(activity)
   }
 
-  const inputFormat = 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 text-setPurpleLight'
-  const headingFormat = 'block mb-2 text-sm font-medium text-setPurpleDark text-[1.25rem]'
+  const inputFormat = 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 text-setPurpleLight lg:mb-4 mt-4'
+  const headingFormat = 'block mb-2 text-sm font-medium text-setPurpleDark text-[1.25rem] lg:text-[1.5rem]'
 
   return (
     <>
@@ -65,7 +65,7 @@ const UpdateForm = ({updates, addUpdate}) => {
           />
       </div>
       <div className="my-4">
-        <h2 className='block mb-2 text-sm font-medium text-white text-[1.25rem]'>Cost</h2>
+        <h2 className={headingFormat}>Cost</h2>
         <input className={inputFormat} type="tel" name="cost" placeholder="$" value={activity.cost} onChange={changeHandler}/>
       </div>
         <h2 className={headingFormat}>Receipt</h2>
@@ -76,7 +76,7 @@ const UpdateForm = ({updates, addUpdate}) => {
         <div className="flex flex-col my-4">
           <textarea className="textarea bg-white mb-4 text-setPurpleLight" rows="10" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
           <div className="flex justify-center">
-           <button className="rounded-md transition-all duration-1000 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4" type="submit">Submit</button>
+           <button className="flex w-[50%] justify-center rounded-md transition-all duration-1000 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm">Submit</button>
           </div>
         </div> 
       </form>
