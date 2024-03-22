@@ -14,4 +14,4 @@ Type in your activity, the cost and any extra notes and submit and you're done! 
 
 ### Screenshots
 ![Screen1](./src/assets/home.png)
-![Screen2](./src/assets/add.png)
+![Screen2](./src/assets/add-update.png)
