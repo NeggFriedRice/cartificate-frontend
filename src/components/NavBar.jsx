@@ -20,7 +20,7 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
   return (
     <>
     <div className="flex justify-center">
-      <nav className="w-[80vw] bg-teal-800 rounded-b-[25px]" role="navigation">
+      <nav className="w-[80vw] bg-setPurpleLight rounded-b-[25px]" role="navigation">
         <div className="flex justify-between py-2 px-4 text-sm">
           <div className="flex">
             <Link to="/">
