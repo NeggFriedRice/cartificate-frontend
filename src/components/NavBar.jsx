@@ -17,26 +17,28 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
     console.log(user)
   }
 
+  const navbarFormat = "text-white px-2 lg:text-[1.5rem] lg:px-6 lg:py-2"
+
   return (
     <>
     <div className="flex justify-center">
-      <nav className="w-[80vw] bg-setPurpleLight rounded-b-[25px]" role="navigation">
+      <nav className="w-[80vw] lg:w-[800px] lg:h-[55px] bg-setPurpleLight rounded-b-[25px]" role="navigation">
         <div className="flex justify-between py-2 px-4 text-sm">
           <div className="flex">
             <Link to="/">
-              <button className="text-white px-2 ">CARtificate</button>
+              <button className={navbarFormat}>CARtificate</button>
             </Link>
             {user && <Link to="/updates/new">
-              <button className="text-white px-2">Add</button>
+              <button className={navbarFormat}>Add</button>
             </Link>}
           </div>
           <div className="flex">
             {!user && <Link to="/login">
-              <button  className="text-white px-2">Login</button>
+              <button  className={navbarFormat}>Login</button>
             </Link>}
-            {user && <button type="button" onClick={logOut} className="text-white px-2">Sign out</button>}
+            {user && <button type="button" onClick={logOut} className="text-white px-2 lg:text-[1.5rem]">Sign out</button>}
             {!user && <Link to="/register">
-              <button  className="text-white px-2">Sign up</button>
+              <button  className={navbarFormat}>Sign up</button>
             </Link>}
             {/* <button type="button" onClick={getUser}>Get User details</button> */}
           </div>

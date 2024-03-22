@@ -35,7 +35,7 @@ const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
                             <h3 className="text-[1.5rem] text-setPurpleDark">{entry.activity}</h3>
                             <button type="button" className="bg-red-500 rounded-lg px-2 text-sm h-[30px] m-4" onClick={deleteHandler}>Delete</button>
                         </div>
-                        <div className="text-setPurpleDark">
+                        <div className="text-setPurpleDark py-4">
                             <h3 className="text-[1.25rem]">Cost: <span className="text-setPurpleLight">${entry.cost}</span></h3>
                             {entry && <h3 className="text-[1.25rem]">Date: <span className="text-setPurpleLight">{dateMod(entry.date)}</span></h3>}
                             <p className="text-[1.25rem]">Notes:</p>
