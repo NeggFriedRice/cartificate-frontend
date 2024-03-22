@@ -16,7 +16,7 @@ function App() {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:4002/updates')
+    fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates')
       .then(data => data.json())
       .then(updates => setUpdates(updates))
     }, [])
@@ -26,7 +26,7 @@ function App() {
 
     let toDeleteUpdateId = null
 
-    await fetch(`http://localhost:4002/updates/${id}`)
+    await fetch(import.meta.env.VITE_BACKEND_API_URL+`/updates/${id}`)
     .then(data => data.json())
     .then(response => toDeleteUpdateId = response._id)
     
@@ -47,7 +47,7 @@ function App() {
     }
     
     // Send post request to server
-    const response = await fetch('http://localhost:4002/updates/new', {
+    const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+'/new', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
