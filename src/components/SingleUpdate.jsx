@@ -36,16 +36,16 @@ const SingleUpdate = ({ id, deleteUpdate, updates, setUpdates }) => {
                 <ul className="py-8">
                     <li className="bg-setPeach w-[350px] rounded-r-[15px] rounded-bl-[15px] p-4 shadow-block-md shadow-setPurpleDark lg:w-[700px] lg:py-6">
                         <div className="grid grid-cols-3 py-4">
-                            <h3 className="text-[1.5rem] text-setPurpleDark col-span-2">{entry.activity}</h3>
+                            <h3 className="text-[1.5rem] lg:text-[2rem] text-setPurpleDark col-span-2">{entry.activity}</h3>
                             <div className="flex flex-wrap">
                                 <button type="button" className="bg-teal-500 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1" onClick={navToEdit}>Edit</button>
                                 <button type="button" className="bg-red-500 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1" onClick={deleteHandler}>Delete</button>
                             </div>
                         </div>
-                        <div className="text-setPurpleDark py-4">
-                            <h3 className="text-[1.25rem]">Cost: <span className="text-setPurpleLight">${entry.cost}</span></h3>
-                            {entry && <h3 className="text-[1.25rem]">Date: <span className="text-setPurpleLight">{dateMod(entry.date)}</span></h3>}
-                            <p className="text-[1.25rem]">Notes:</p>
+                        <div className="text-setPurpleDark py-4 text-[1.25rem] lg:text-[1.5rem]">
+                            <h3>Cost: <span className="text-setPurpleLight">${entry.cost}</span></h3>
+                            {entry && <h3>Date: <span className="text-setPurpleLight">{dateMod(entry.date)}</span></h3>}
+                            <p>Notes:</p>
                             <p><span className="text-setPurpleLight">{entry.notes}</span></p>
                         </div>
                     </li>
