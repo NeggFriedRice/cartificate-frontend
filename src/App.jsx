@@ -7,6 +7,7 @@ import ShowUpdate from './components/ShowUpdate'
 import NavBar from './components/NavBar'
 import Login from './components/Login'
 import SingleUpdate from './components/SingleUpdate'
+import Register from './components/Register'
 
 
 function App() {
@@ -87,7 +88,8 @@ function App() {
           <Route path='/' element={<ShowUpdate updates={updates} user={user}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm setUpdates={setUpdates} updates={updates} addUpdate={addUpdate}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
-          <Route path='/login' element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>}/>
+          <Route path='/login' element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>} />
+          <Route path='/register' element={<Register />} />
         </Routes>
       </BrowserRouter>
       
