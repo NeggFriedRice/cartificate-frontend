@@ -16,17 +16,41 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
   const [deleted, setDeleted] = useState(false)
+  const [filtered, setFiltered] = useState(null)
 
-
-  function getUpdates() {
-    fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates')
+  async function getUpdates() {
+    await fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates')
     .then(data => data.json())
     .then(updates => setUpdates(updates))
   }
 
+  function getUser() {
+    const user = sessionStorage.getItem('user')
+    setUser(user)
+  }
+
+  const userObject = JSON.parse(user)
+
+  function filterByUser(update) {
+    if (update.createdBy == userObject._id) {
+      return true
+    }
+  }
+
+  async function filterUpdates() {
+    try {
+      const filteredUpdates = updates.filter(filterByUser)
+      setFiltered(filteredUpdates)
+    } catch (err) {
+      setFiltered(false)
+    }
+  }
+
   useEffect(() => {
       getUpdates()
-    }, [])
+      getUser()
+      filterUpdates()
+    }, [updates])
 
 
   async function deleteUpdate(id) {
@@ -85,7 +109,7 @@ function App() {
       <BrowserRouter>
         <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>
         <Routes>
-          <Route path='/' element={<ShowUpdate updates={updates} user={user}/>}></Route>
+          <Route path='/' element={<ShowUpdate updates={updates} user={user} filtered={filtered}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm setUpdates={setUpdates} updates={updates} addUpdate={addUpdate}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
           <Route path='/login' element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>} />

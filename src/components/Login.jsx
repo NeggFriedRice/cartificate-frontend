@@ -69,7 +69,7 @@ export default function Login({setUser, setIsLoggedIn}) {
                         </div>
                     </div>
                     <div className="flex justify-center">
-                        <button type="submit" className="flex w-[50%] justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+                        <button type="submit" className="flex w-[50%] justify-center rounded-md transition-all duration-1000 bg-teal-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 mb-4">Sign in</button>
                     </div>
                     </form>
                 </div>

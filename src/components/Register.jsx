@@ -75,11 +75,11 @@ export default function Register() {
                             <input id="confirmPassword" name="confirmPassword" onChange={changeHandler} required className="block w-[100%] rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 bg-white" />
                             </div>
                     </div>
-                    <div className="h-[1rem]">
-                    {formData.password !== formData.confirmPassword && <p className="text-red-500">Passwords don't match!</p>}
+                    <div className="">
+                    {formData.password !== formData.confirmPassword && <p className="text-red-500 text-sm">Passwords don't match!</p>}
                     </div>
                     <div className="flex justify-center">
-                        <button type="submit" className="flex w-[50%] justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</button>
+                        <button type="submit" className="transition-all duration-1000 flex w-[50%] justify-center rounded-md bg-teal-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 mb-4">Sign up</button>
                     </div>
                     </form>
                 </div>
