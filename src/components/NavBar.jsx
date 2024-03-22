@@ -31,6 +31,9 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
               <button className="bg-transparent">Login</button>
             </Link>}
             {user && <button type="button" onClick={logOut} className="text-white">Sign out</button>}
+            <Link to="/register" className="navbar-item">
+              <button className="bg-transparent">Sign up</button>
+            </Link>
             <button type="button" onClick={getUser}>Get User details</button>
         </div>
       </nav>
