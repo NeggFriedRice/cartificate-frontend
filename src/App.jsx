@@ -71,12 +71,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar />
+        <NavBar user={user}/>
         <Routes>
           <Route path='/' element={<ShowUpdate updates={updates}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm setUpdates={setUpdates} updates={updates} addUpdate={addUpdate}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate} updates={updates} setUpdates={setUpdates}/>} />
-          <Route path='/login' element={<Login />}/>
+          <Route path='/login' element={<Login setUser={ setUser }/>}/>
           
         </Routes>
       </BrowserRouter>
