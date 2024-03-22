@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 const ShowUpdate = ({ updates, user }) => {
 
   const [filtered, setFiltered] = useState(null)
-  const [renderUpdate, setRenderUpdate] = useState(false)
 
   const userObject = JSON.parse(user)
 
@@ -35,7 +34,11 @@ const ShowUpdate = ({ updates, user }) => {
     <>
     <div className="log-container">
       <ul>
-        {!filtered || filtered.length == 0 ? <p>Add something to your list!</p> :
+        {!filtered || filtered.length == 0 ? 
+        <div className="flex justify-center py-8">
+          <p className="text-white">Get your maintenance started!</p>
+        </div> 
+        :
         filtered.map((update, index) => 
           <li key={index}>
               <Link to={`updates/${update._id}`}>
