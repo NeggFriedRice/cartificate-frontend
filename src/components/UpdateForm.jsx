@@ -77,7 +77,7 @@ const UpdateForm = ({ addUpdate }) => {
         <div className="flex flex-col my-4">
           <textarea className="textarea bg-white mb-4 text-setPurpleLight" rows="10" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
           <div className="flex justify-center">
-           <button className="flex w-[50%] justify-center rounded-md transition-all duration-1000 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm animate-floatxs">Submit</button>
+           <button className="flex w-[50%] justify-center rounded-md transition-all duration-1000 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm shadow-gray-600 animate-floatxs">Submit</button>
           </div>
         </div> 
       </form>
