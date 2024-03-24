@@ -53,7 +53,7 @@ export default function Register() {
 
     return (
         <div className="flex justify-center px-6 py-12 lg:px-8">
-            <div className="bg-setPeach py-4 rounded-[50px] w-[350px] lg:w-[550px] shadow-block-md shadow-setPurpleDark">
+            <div className="bg-setPeach py-4 rounded-[50px] w-[350px] lg:w-[550px] transition-all duration-700 shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="text-center text-lg lg:text-[1.5rem] lg:mt-8 font-bold leading-9 tracking-tight text-setPurpleDark">Sign up!</h2>
                 </div>

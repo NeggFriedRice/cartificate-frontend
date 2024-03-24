@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import Intro from './Intro'
 
 const ShowUpdate = ({ filtered }) => {
 
@@ -14,11 +15,7 @@ const ShowUpdate = ({ filtered }) => {
 
           <ul>
             {!filtered || filtered.length == 0 ? 
-            <a href="/login">
-              <div className="animate-float transition-all duration-700 flex justify-center py-8 mt-24 bg-setPeach hover:bg-setPeachLight rounded-full shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark">
-                <p className="text-setPurpleDark lg:text-[1.5rem]">Get your maintenance started!</p>
-              </div>
-            </a>
+              <Intro />
             :
             filtered.map((update, index) => 
             <div className="animate-floatxs" key={index}>
