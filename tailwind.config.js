@@ -67,10 +67,11 @@ export default {
       },
       colors: {
         setPurpleDark: '#583D72',
+        setPurpleDarkHover: '#795999',
         setPurpleLight: '#9F5F80',
         setCoral: '#FF8474',
         setPeach: '#FFC996',
-        setPeachLight: '#fcd2a9'
+        setPeachLight: '#f5cfab'
       }
   },
   plugins: [

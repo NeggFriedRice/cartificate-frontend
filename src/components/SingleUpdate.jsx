@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Unauthorised from './Unauthorised'
 
 
 const SingleUpdate = ({ id, deleteUpdate, user }) => {
@@ -52,7 +53,7 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
             <div className="flex justify-center animate-floatxs">
                 <ul className="py-8">
                     {userID ?
-                    <li className="bg-setPeach hover:bg-setPeachLight w-[350px] rounded-r-[15px] rounded-bl-[15px] p-4 shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700 lg:w-[700px] lg:py-6">
+                    <li className="bg-setPeach w-[350px] rounded-r-[15px] rounded-bl-[15px] p-4 shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700 lg:w-[700px] lg:py-6">
                         <div className="grid grid-cols-3 py-4">
                             <h3 className="text-[1.5rem] lg:text-[2rem] text-setPurpleDark col-span-2">{entry.activity}</h3>
                             <div className="flex flex-wrap">
@@ -66,7 +67,7 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
                             <p>Notes:</p>
                             <p><span className="text-setPurpleLight">{entry.notes}</span></p>
                         </div>
-                    </li> : <p>Oops looks like you made a wrong turn</p>}
+                    </li> : <Unauthorised />}
                 </ul>
             </div>
         </>
