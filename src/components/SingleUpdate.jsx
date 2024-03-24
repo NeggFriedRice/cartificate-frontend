@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-const SingleUpdate = ({ id, deleteUpdate }) => {
+const SingleUpdate = ({ id, deleteUpdate, user }) => {
 
     const navigate = useNavigate()
     const [entry, setEntry] = useState("")
+    const [userID, setUserID] = useState(false)
+    const userObject = JSON.parse(user)
+
 
     function dateMod(date) {
         return date.split('T')[0]
@@ -17,9 +20,23 @@ const SingleUpdate = ({ id, deleteUpdate }) => {
         .then(data => setEntry(data))
     }
 
+    function checkId() {
+        try {
+            if(userObject._id == entry.createdBy) {
+                setUserID(true)
+            }
+        } catch (error) {
+            console.log("Authorisation failed; you may have tried to access an entry that you didn't create!")
+        }
+    }
+
     useEffect(() => {
         getSingleUpdate()
     }, [])
+
+    useEffect(() => {
+        checkId()
+    }, [entry])
 
     function deleteHandler() {
        deleteUpdate(id)
@@ -34,12 +51,13 @@ const SingleUpdate = ({ id, deleteUpdate }) => {
         <>
             <div className="flex justify-center animate-floatxs">
                 <ul className="py-8">
-                    <li className="bg-setPeach w-[350px] rounded-r-[15px] rounded-bl-[15px] p-4 shadow-block-md shadow-setPurpleDark lg:w-[700px] lg:py-6">
+                    {userID ?
+                    <li className="bg-setPeach hover:bg-setPeachLight w-[350px] rounded-r-[15px] rounded-bl-[15px] p-4 shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700 lg:w-[700px] lg:py-6">
                         <div className="grid grid-cols-3 py-4">
                             <h3 className="text-[1.5rem] lg:text-[2rem] text-setPurpleDark col-span-2">{entry.activity}</h3>
                             <div className="flex flex-wrap">
-                                <button type="button" className="bg-teal-500 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1" onClick={navToEdit}>Edit</button>
-                                <button type="button" className="bg-red-500 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1" onClick={deleteHandler}>Delete</button>
+                                <button type="button" className="bg-teal-500 hover:bg-teal-400 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1  transition-all duration-700" onClick={navToEdit}>Edit</button>
+                                <button type="button" className="bg-red-500 hover:bg-red-400 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1 transition-all duration-700" onClick={deleteHandler}>Delete</button>
                             </div>
                         </div>
                         <div className="text-setPurpleDark py-4 text-[1.25rem] lg:text-[1.5rem]">
@@ -48,7 +66,7 @@ const SingleUpdate = ({ id, deleteUpdate }) => {
                             <p>Notes:</p>
                             <p><span className="text-setPurpleLight">{entry.notes}</span></p>
                         </div>
-                    </li>
+                    </li> : <p>Oops looks like you made a wrong turn</p>}
                 </ul>
             </div>
         </>

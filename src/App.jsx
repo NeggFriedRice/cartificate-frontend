@@ -100,7 +100,7 @@ function App() {
 
   const UpdateWrapper = ({deleteUpdate}) => {
     const { id } = useParams()
-    return <SingleUpdate id={id} deleteUpdate={deleteUpdate}/>
+    return <SingleUpdate id={id} deleteUpdate={deleteUpdate} user={user}/>
   }
 
   const EditWrapper = () => {

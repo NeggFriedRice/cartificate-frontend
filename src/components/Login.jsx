@@ -67,8 +67,11 @@ export default function Login({setUser, setIsLoggedIn}) {
                             <input id="password" name="password" onChange={changeHandler} required className="block w-full rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
                             </div>
                         </div>
+                        <div>
+                            <a href="/register" className="text-setPurpleLight underline">Don't have an account? Register here!</a>
+                        </div>
                         <div className="flex justify-center">
-                            <button type="submit" className="flex w-[50%] justify-center rounded-md transition-all duration-1000 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm shadow-gray-600 animate-floatxs">Sign in</button>
+                            <button type="submit" className="flex w-[50%] justify-center rounded-md transition-all duration-700 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm hover:shadow-block-smmd shadow-gray-600 hover:shadow-gray-600 animate-floatxs">Sign in</button>
                         </div>
                     </form>
                 </div>

@@ -44,7 +44,7 @@ const UpdateForm = ({ addUpdate }) => {
 
   return (
     <>
-    <div className="flex justify-center bg-setPeach my-8 rounded-[15px] shadow-block-md shadow-setPurpleDark">
+    <div className="flex justify-center bg-setPeach my-8 rounded-[15px] shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700">
       <form onSubmit={submitHandler} className="w-[100%] px-8">
         <div className="my-4">
         <h2 className="text-[2rem] text-setPurpleLight font-semibold">Add new entry</h2>
@@ -77,7 +77,7 @@ const UpdateForm = ({ addUpdate }) => {
         <div className="flex flex-col my-4">
           <textarea className="textarea bg-white mb-4 text-setPurpleLight" rows="10" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
           <div className="flex justify-center">
-           <button className="flex w-[50%] justify-center rounded-md transition-all duration-1000 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm shadow-gray-600 animate-floatxs">Submit</button>
+           <button className="flex w-[50%] justify-center rounded-md transition-all duration-700 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm hover:shadow-block-smmd shadow-gray-600 hover:shadow-gray-600  animate-floatxs">Submit</button>
           </div>
         </div> 
       </form>
