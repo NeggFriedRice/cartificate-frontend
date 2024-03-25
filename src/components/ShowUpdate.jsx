@@ -1,8 +1,21 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Intro from './Intro'
+import { motion, AnimatePresence, domAnimation } from 'framer-motion'
 
 const ShowUpdate = ({ filtered }) => {
+
+  const [showUpdate, setShowUpdate] = useState(true)
+
+  function checkToShow() {
+    if (filtered) {
+      setShowUpdate(true)
+    }
+  }
+
+  useEffect(() => {
+    checkToShow()
+  }, [])
 
   function dateMod(date) {
     return date.split('T')[0]
@@ -12,10 +25,27 @@ const ShowUpdate = ({ filtered }) => {
     <>
     <div className="flex justify-center">
       <div className="w-[350px] lg:w-[750px] text-md p-4">
-
           <ul>
-            {!filtered || filtered.length == 0 ? 
-              <Intro />
+          <AnimatePresence mode="wait">
+              { showUpdate && (
+                
+                <motion.div
+                key="introduction"
+                className="overflow-hidden"
+                initial = {{ opacity: 0}}
+                animate = {{ opacity: 1}}
+                exit = {{ opacity: 0}}
+                transition = {{ duration: 1}}
+                >Hello</motion.div>
+
+              )}
+            </AnimatePresence>
+
+
+
+          {/* <AnimatePresence> 
+            {!filtered || filtered.length == 0 ?
+              <Intro key="intro"/>
             :
             filtered.map((update, index) => 
             <div className="animate-floatxs" key={index}>
@@ -34,8 +64,9 @@ const ShowUpdate = ({ filtered }) => {
               </Link>
             </div>)
               }
-          </ul>
+          </AnimatePresence> */}
 
+          </ul>
       </div>
     </div>
     </>

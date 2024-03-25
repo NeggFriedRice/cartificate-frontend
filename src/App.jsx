@@ -9,6 +9,7 @@ import Login from './components/Login'
 import SingleUpdate from './components/SingleUpdate'
 import Register from './components/Register'
 import EditForm from './components/EditForm'
+import { AnimatePresence } from 'framer-motion'
 
 
 function App() {
@@ -110,17 +111,19 @@ function App() {
 
   return (
     <>
+    
       <BrowserRouter>
         <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>
         <Routes>
-          <Route path='/' element={<ShowUpdate user={user} filtered={filtered}/>}></Route>
+          <Route path='/' key="showUpdate" element={<ShowUpdate user={user} filtered={filtered}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
           <Route path='/updates/edit/:id' element={<EditWrapper />} />
-          <Route path='/login' element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>} />
+          <Route path='/login' key="logIn" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>} />
           <Route path='/register' element={<Register />} />
         </Routes>
       </BrowserRouter>
+    
     </>
   )
 }
