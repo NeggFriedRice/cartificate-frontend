@@ -28,7 +28,7 @@ export default function Intro(key) {
     animate="visible"
     exit="exit">
     <Link to="/login">
-        <div className="animate-float transition-all flex justify-center py-8 mt-24 bg-setPeach hover:bg-setPeachLight rounded-full shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark">
+        <div className="animate-float transition-all duration-700 flex justify-center py-8 mt-24 bg-setPeach hover:bg-setPeachLight rounded-full shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark">
             <p className="text-setPurpleDark lg:text-[1.5rem]">Get your maintenance started!</p>
             <span className="relative flex top-[1px] right-[12px] h-5 w-5 ">
             <img className="absolute w-[35px] lg:w-[35px] mx-4 animate-ping duration-1000 opacity-75" src="cursor.svg" />
