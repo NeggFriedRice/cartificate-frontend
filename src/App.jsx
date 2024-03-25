@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import UpdateForm from './components/UpdateForm'
-import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useParams, useLocation } from 'react-router-dom'
 import ShowUpdate from './components/ShowUpdate'
 import NavBar from './components/NavBar'
 import Login from './components/Login'
@@ -14,6 +14,7 @@ import { AnimatePresence } from 'framer-motion'
 
 function App() {
 
+  const location = useLocation()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
   const [deleted, setDeleted] = useState(false)
@@ -111,10 +112,9 @@ function App() {
 
   return (
     <>
-    
-      <BrowserRouter>
-        <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>
-        <Routes>
+      <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>
+      <AnimatePresence mode='wait'>
+        <Routes location={location} key={location.key}>
           <Route path='/' key="showUpdate" element={<ShowUpdate user={user} filtered={filtered}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
@@ -122,8 +122,7 @@ function App() {
           <Route path='/login' key="logIn" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>} />
           <Route path='/register' element={<Register />} />
         </Routes>
-      </BrowserRouter>
-    
+      </AnimatePresence>  
     </>
   )
 }

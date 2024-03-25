@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Login({setUser, setIsLoggedIn}) {
 
@@ -29,6 +30,7 @@ export default function Login({setUser, setIsLoggedIn}) {
                 },
                 body: JSON.stringify(formData)
             })
+            await console.log(response)
             if (!response.ok) {
                 throw new Error("Incorrect username or password")
             }
@@ -46,7 +48,12 @@ export default function Login({setUser, setIsLoggedIn}) {
     }
 
     return (
-        <div className="flex justify-center px-4 py-12">
+        <motion.div 
+        key="login"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="loginContainer flex justify-center px-4 py-12">
             <div className="bg-setPeach py-4 rounded-[50px] w-[350px] lg:w-[550px] transition-all duration-700 shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark">
                 <div className="">
                     <h2 className="text-center text-lg lg:text-[1.5rem] lg:mt-8 font-bold leading-9 tracking-tight text-setPurpleDark">Sign in to your account</h2>
@@ -76,6 +83,6 @@ export default function Login({setUser, setIsLoggedIn}) {
                     </form>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

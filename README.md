@@ -35,4 +35,5 @@ This started as a practice project and as such was built only to run locally at 
 - Was it best practices to filter after receiving the full stack of data from the back end? Should I have filtered this from the front end?
 - Was my implementation of log in and log out considered lazy?
 - Should bearer token always be sent with each API request?
+- .env file should always be in the root directory (spent 30 mins trying to figure out why that didn't work on a new device)
 
