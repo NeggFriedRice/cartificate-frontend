@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useNavigate } from 'react-router-dom'
+import { animationSlide } from './animation'
+import { motion } from 'framer-motion'
 
 const EditForm = ({ id, setEdited }) => {
 
@@ -58,44 +60,50 @@ const EditForm = ({ id, setEdited }) => {
 	return (
 		<>
 			{activity &&
-			<div className="flex justify-center bg-[#99d3cf] my-8 rounded-[15px] shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700">
-			<form onSubmit={submitHandler} className="w-[100%] px-8">
-				<div className="my-4">
-				<h2 className="text-[2rem] text-setPurpleLight font-semibold">Update entry</h2>
-				<h2 className={headingFormat}>Activity type</h2>
-				<input className={inputFormat} type="text" name="activity" placeholder="Oil change, replaced brake rotors" value={activity.activity} onChange={changeHandler}/>
+			<motion.div
+			key="editForm"
+			initial={animationSlide.hidden}
+			animate={animationSlide.visible}
+			exit={animationSlide.exit}>
+				<div className="flex justify-center bg-[#99d3cf] my-8 rounded-[15px] shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700">
+				<form onSubmit={submitHandler} className="w-[100%] px-8">
+					<div className="my-4">
+					<h2 className="text-[2rem] text-setPurpleLight font-semibold">Update entry</h2>
+					<h2 className={headingFormat}>Activity type</h2>
+					<input className={inputFormat} type="text" name="activity" placeholder="Oil change, replaced brake rotors" value={activity.activity} onChange={changeHandler}/>
+					</div>
+					<div className="my-4">
+					<label className={headingFormat}>Date</label>
+					<input
+						type='date'
+						name='date'
+						id='date'
+						pattern='\d{4}-\d{2}-\d{2}'
+						value={activity.date}
+						onChange={changeHandler}
+						className={inputFormat}
+						placeholder=''
+						required=''
+					/>
 				</div>
 				<div className="my-4">
-				<label className={headingFormat}>Date</label>
-				<input
-					type='date'
-					name='date'
-					id='date'
-					pattern='\d{4}-\d{2}-\d{2}'
-					value={activity.date}
-					onChange={changeHandler}
-					className={inputFormat}
-					placeholder=''
-					required=''
-				/>
-			</div>
-			<div className="my-4">
-				<h2 className={headingFormat}>Cost</h2>
-				<input className={inputFormat} type="tel" name="cost" placeholder="$" value={activity.cost} onChange={changeHandler}/>
-			</div>
-				<h2 className={headingFormat}>Receipt</h2>
-				<div className="file my-4">
-				<input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-grey-700 dark:placeholder-gray-400" id="file_input" type="file" />
+					<h2 className={headingFormat}>Cost</h2>
+					<input className={inputFormat} type="tel" name="cost" placeholder="$" value={activity.cost} onChange={changeHandler}/>
 				</div>
-				<h2 className={headingFormat}>Extra notes</h2>
-				<div className="flex flex-col my-4">
-				<textarea className="textarea bg-white mb-4 text-setPurpleLight" rows="10" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
-				<div className="flex justify-center">
-				<button className="flex w-[50%] justify-center rounded-md transition-all duration-700 bg-red-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm hover:shadow-block-smmd shadow-gray-600 hover:shadow-gray-600 animate-floatxs">Save changes</button>
+					<h2 className={headingFormat}>Receipt</h2>
+					<div className="file my-4">
+					<input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-grey-700 dark:placeholder-gray-400" id="file_input" type="file" />
+					</div>
+					<h2 className={headingFormat}>Extra notes</h2>
+					<div className="flex flex-col my-4">
+					<textarea className="textarea bg-white mb-4 text-setPurpleLight" rows="10" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
+					<div className="flex justify-center">
+					<button className="flex w-[50%] justify-center rounded-md transition-all duration-700 bg-red-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-red-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm hover:shadow-block-smmd shadow-gray-600 hover:shadow-gray-600 animate-floatxs">Save changes</button>
+					</div>
+					</div> 
+				</form>
 				</div>
-				</div> 
-			</form>
-			</div>
+			</motion.div>
 			}	
 		</>
 	)

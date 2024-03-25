@@ -6,15 +6,18 @@ export default function Intro(key) {
 
   const containerVariants = {
     hidden: {
+      y: '-100%',
       opacity: 0,
     },
     visible: {
+      y: 0,
       opacity: 1,
-      transition: { delay: 1.5, duration: 1.5 }
+      transition: { delay: 0.2, duration: '1s', type: 'spring', stiffness: '200' }
     },
     exit: {
+      x: '-200%',
       opacity: 0,
-      transition: { duration: 1 }
+      transition: { duration: 0.1 }
     }
   }
 

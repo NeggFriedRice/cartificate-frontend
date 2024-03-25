@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Unauthorised from './Unauthorised'
+import { motion } from 'framer-motion'
+import { animationSlide } from './animation'
 
 
 const SingleUpdate = ({ id, deleteUpdate, user }) => {
@@ -49,7 +51,10 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
     }
 
     return (
-        <>
+        <motion.div
+        initial={animationSlide.hidden}
+        animate={animationSlide.visible}
+        exit={animationSlide.exit}>
             <div className="flex justify-center animate-floatxs">
                 <ul className="py-8">
                     {userID ?
@@ -70,7 +75,7 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
                     </li> : <Unauthorised />}
                 </ul>
             </div>
-        </>
+        </motion.div>
         )
 }
 

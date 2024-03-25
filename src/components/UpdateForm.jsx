@@ -2,6 +2,8 @@ import { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useNavigate } from 'react-router-dom'
+import { animationSlide } from './animation'
+import { motion } from 'framer-motion'
 
 const UpdateForm = ({ addUpdate }) => {
 
@@ -43,7 +45,11 @@ const UpdateForm = ({ addUpdate }) => {
   const headingFormat = 'block mb-2 mt-4 text-sm font-medium text-setPurpleDark text-[1.25rem] lg:text-[1.5rem]'
 
   return (
-    <>
+    <motion.div
+    key="addEntry"
+    initial={animationSlide.hidden}
+    animate={animationSlide.visible}
+    exit={animationSlide.exit}>
     <div className="flex justify-center bg-setPeach my-8 rounded-[15px] shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700">
       <form onSubmit={submitHandler} className="w-[100%] px-8">
         <div className="my-4">
@@ -83,7 +89,7 @@ const UpdateForm = ({ addUpdate }) => {
       </form>
     </div>
       {/* <button className="button is-primary is-light" onClick={showUpdates}>Console Log updates</button> */}
-    </>
+    </motion.div>
   )
 }
 

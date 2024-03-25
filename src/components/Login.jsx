@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { animationSlide } from './animation.js'
 
 export default function Login({setUser, setIsLoggedIn}) {
 
@@ -50,9 +51,9 @@ export default function Login({setUser, setIsLoggedIn}) {
     return (
         <motion.div 
         key="login"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        initial={animationSlide.hidden}
+        animate={animationSlide.visible}
+        exit={animationSlide.exit}
         className="loginContainer flex justify-center px-4 py-12">
             <div className="bg-setPeach py-4 rounded-[50px] w-[350px] lg:w-[550px] transition-all duration-700 shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark">
                 <div className="">

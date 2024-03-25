@@ -113,7 +113,7 @@ function App() {
   return (
     <>
       <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>
-      <AnimatePresence mode='wait'>
+      <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
           <Route path='/' key="showUpdate" element={<ShowUpdate user={user} filtered={filtered}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate}/>}></Route>
