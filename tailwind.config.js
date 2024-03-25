@@ -71,7 +71,8 @@ export default {
         setPurpleLight: '#9F5F80',
         setCoral: '#FF8474',
         setPeach: '#FFC996',
-        setPeachLight: '#f5cfab'
+        setPeachLight: '#f5cfab',
+        setRed: '#f7b2c5'
       }
   },
   plugins: [

@@ -36,4 +36,6 @@ This started as a practice project and as such was built only to run locally at 
 - Was my implementation of log in and log out considered lazy?
 - Should bearer token always be sent with each API request?
 - .env file should always be in the root directory (spent 30 mins trying to figure out why that didn't work on a new device)
+- Add Router to wrap App component in main.jsx
+- Add AnimatePresence to wrap all Route components in App.jsx
 

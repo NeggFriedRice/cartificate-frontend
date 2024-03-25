@@ -12,7 +12,7 @@ export default function Intro(key) {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { delay: 0.2, duration: '1s', type: 'spring', stiffness: '200' }
+      transition: { delay: 2, type: 'spring', stiffness: '200' }
     },
     exit: {
       x: '-200%',
