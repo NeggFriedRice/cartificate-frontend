@@ -22,13 +22,14 @@ Register an account using a username and a password and start adding in your mai
 This started as a practice project and as such was built only to run locally at first. Almost ready to deploy (updated: 25/03/2024)
 
 ### Screenshots
-
+<div style="display: flex">
 <img src="./src/assets/cart-updates.png" height="600"/>
 <img src="./src/assets/cart-single-update.png" height="600"/>
 <img src="./src/assets/cart-add.png" height="600"/>
 <img src="./src/assets/cart-update.png" height="600"/>
 <img src="./src/assets/cart-login.png" height="600"/>
 <img src="./src/assets/cart-signup.png" height="600"/>
+</div>
 
 #### Notes to self during the build:
 - Was it best practices to filter after receiving the full stack of data from the back end? Should I have filtered this from the front end?
