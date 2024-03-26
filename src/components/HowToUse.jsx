@@ -11,7 +11,7 @@ export default function HowToUse() {
     exit={animationSlide.exit}>
         <div className="flex justify-center animate-floatxs py-12 text-setPurpleDark text-[1.25rem]">
                 <div className="bg-setPeach w-[350px] rounded-r-[15px] rounded-bl-[15px] p-4 shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700 lg:w-[700px] lg:py-6">
-                <ul className="list-disc px-8 text-setPurpleDark">
+                <ul className="list-disc px-8 text-setPurpleDark max-xs:text-[1rem]">
                     <li>
                         <Link to="/register"><p className="underline">Register an account</p></Link>
                     </li>
