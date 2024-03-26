@@ -1,6 +1,7 @@
 # CARtificate
 
 ![Deployed app](https://cartificate-frontend.vercel.app/)
+Please note I haven't paid for Render for the back end and hence it may take up to 30 seconds to spin back up
 
 Selling your car is bittersweet. On the one hand, that means you're probably getting something newer and shinier than the one sitting out front. On the other hand, you have to spend an hour trying to find that manila folder full of receipts that you kept over the years detailing the maintenance records of your car.
 
@@ -21,6 +22,10 @@ Register an account using a username and a password and start adding in your mai
 ### Tech Stack
 - HTML, CSS, JavaScript, React
 - Tailwind CSS, Framer-motion, React router dom
+
+## Deployment
+- Front end: Vercel
+- Back end: Render
 
 ### Screenshots
 <div style="display: flex">
