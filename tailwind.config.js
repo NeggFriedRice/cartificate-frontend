@@ -50,7 +50,7 @@ export default {
         bobbleFast: 'bobble 1s ease-in-out infinite',
         breathe: 'breathe 2s ease-in-out infinite',
         float: 'float 2s ease-in-out infinite',
-        floatxs: 'floatxs 2s ease-in-out infinite'
+        floatxs: 'floatxs 2.5s ease-in-out infinite'
       },
       transitionDuration: {
         '1s': '1s',

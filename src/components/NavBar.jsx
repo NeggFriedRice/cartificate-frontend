@@ -27,11 +27,11 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
     style={{ position: 'relative'}}
     initial={{ y: '-130%', opacity: 0}}
     animate={{ y: 0, opacity: 1}}
-    transition={{ delay: 1, duration: 0.5 }}
+    transition={{ delay: 0.5, duration: 0.5 }}
     >
     <div className="flex justify-center">
       <nav className="w-[80vw] lg:w-[800px] lg:h-[55px] bg-setPurpleLight rounded-b-[25px] shadow-block-sm shadow-setPurpleDark" role="navigation">
-        <div className="flex justify-between py-2 px-4 text-sm">
+        <div className="justify-between py-2 px-4 text-sm relative">
           <div className="flex">
             <Link to="/">
               <button className={navbarFormat}>CARtificate</button>
@@ -55,8 +55,10 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
             {!user && 
             <motion.div
             key="loginsignup"
+            className="absolute right-[10px] top-[10px]"
             initial={{opacity: 0, y:'-110%'}}
             animate={{opacity: 1, y: 0, transition: {delay: 1, duration: 0.3}}}
+            exit={{ opacity: 0, y: '-100%'}}
             >
               <Link to="/login">
                 <button  className={navbarFormat}>Login</button>
@@ -72,8 +74,9 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
             {user && 
             <motion.div
             key="signOut"
+            className="absolute right-[10px] top-[10px]"
             initial={{opacity: 0, y:'-100%'}}
-            animate={{opacity: 1, y: 0, transition: {delay: 1.5, duration: 0.3}}}
+            animate={{opacity: 1, y: 0, transition: {delay: 0.5, duration: 0.3}}}
             exit={{ opacity: 0, y:'-100%', x: 0, transition: {delay: 0.5, duration: 0.3}}}>
               <button type="button" onClick={logOut} className={navbarFormat}>Sign out</button>
             </motion.div>}

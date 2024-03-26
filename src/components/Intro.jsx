@@ -12,7 +12,7 @@ export default function Intro(key) {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { delay: 2, type: 'spring', stiffness: '200' }
+      transition: { delay: 1.25, type: 'spring', stiffness: 200 }
     },
     exit: {
       x: '-200%',
@@ -22,6 +22,7 @@ export default function Intro(key) {
   }
 
   return (
+    <>
     <motion.div
     variants={containerVariants}
     initial="hidden"
@@ -37,5 +38,17 @@ export default function Intro(key) {
         </div>
     </Link>
     </motion.div>
+    <motion.div
+    variants={containerVariants}
+    initial="hidden"
+    animate={{ y: 0, opacity: 1, transition: {delay: 1.5, duration: 0.1, type: 'spring', stiffness: 200 }}}
+    exit="exit">
+    <Link to="/info">
+      <div className="animate-floatxs transition-all duration-700 flex justify-center py-4 mt-24 bg-[#b9d98f] hover:bg-[#D9EDBF] rounded-full shadow-block-sm hover:shadow-block-smmd shadow-setPurpleDark hover:shadow-setPurpleDark w-[250px]">
+              <p className="text-setPurpleDark lg:text-[1.25rem] ">How to use</p>
+          </div>
+    </Link>
+    </motion.div>
+    </>
   )
 }

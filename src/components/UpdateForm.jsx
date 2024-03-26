@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { animationSlide } from './animation'
 import { motion } from 'framer-motion'
 
-const UpdateForm = ({ addUpdate }) => {
+const UpdateForm = ({ addUpdate, user }) => {
 
   const nav = useNavigate()
   const currentDate = new Date().toISOString().split('T')[0]

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Intro from './Intro'
 import { motion, AnimatePresence } from 'framer-motion'
 import { animationSlide } from './animation'
+import HowToUse from './HowToUse'
 
 const ShowUpdate = ({ filtered }) => {
 
@@ -28,7 +29,9 @@ const ShowUpdate = ({ filtered }) => {
       <div className="w-[350px] lg:w-[750px] text-md p-4">
           <ul>
             {!filtered || filtered.length == 0 ?
+              <>
               <Intro/>
+              </>
             :
             filtered.map((update, index) => 
             <motion.div

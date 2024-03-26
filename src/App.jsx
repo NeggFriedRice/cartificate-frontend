@@ -10,6 +10,7 @@ import SingleUpdate from './components/SingleUpdate'
 import Register from './components/Register'
 import EditForm from './components/EditForm'
 import { AnimatePresence } from 'framer-motion'
+import HowToUse from './components/HowToUse'
 
 
 function App() {
@@ -116,11 +117,12 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
           <Route path='/' key="showUpdate" element={<ShowUpdate user={user} filtered={filtered}/>}></Route>
-          <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate}/>}></Route>
+          <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate} user={user}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
           <Route path='/updates/edit/:id' element={<EditWrapper />} />
           <Route path='/login' key="logIn" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>} />
           <Route path='/register' element={<Register />} />
+          <Route path='/info' element={<HowToUse />} />
         </Routes>
       </AnimatePresence>  
     </>
