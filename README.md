@@ -1,6 +1,6 @@
 # CARtificate
 
-You can find the deployed app [here](https://cartificate-frontend.vercel.app/)
+You can find the deployed app [here](https://cartificate.vercel.app/)
 
 **Please note I haven't paid for Render for the back end and hence it may take up to 30 seconds to spin back up*
 
