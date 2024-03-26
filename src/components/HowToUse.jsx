@@ -27,7 +27,6 @@ export default function HowToUse() {
                 </ul>
                 <p className="py-8">You can go back and edit or delete any entries that you have submitted at any time, happy tracking ~</p>
                 </div>
-
         </div>
     </motion.div>
   )

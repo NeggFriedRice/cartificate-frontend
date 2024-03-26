@@ -1,5 +1,7 @@
 # CARtificate
 
+![Deployed app](https://cartificate-frontend.vercel.app/)
+
 Selling your car is bittersweet. On the one hand, that means you're probably getting something newer and shinier than the one sitting out front. On the other hand, you have to spend an hour trying to find that manila folder full of receipts that you kept over the years detailing the maintenance records of your car.
 
 You don't want to do it, but you know you could tack on an extra 10% to your asking price if you had that folder.
@@ -15,11 +17,10 @@ Register an account using a username and a password and start adding in your mai
 ### Things to come
 
 - Add image functionality to upload receipts
-- Add a few more animations
-- Deploy (almost there!)
 
-### Notes
-This started as a practice project and as such was built only to run locally at first. Almost ready to deploy (updated: 25/03/2024)
+### Tech Stack
+- HTML, CSS, JavaScript, React
+- Tailwind CSS, Framer-motion, React router dom
 
 ### Screenshots
 <div style="display: flex">
