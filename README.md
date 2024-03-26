@@ -2,7 +2,7 @@
 
 You can find the deployed app [here](https://cartificate-frontend.vercel.app/)
 
-*Please note I haven't paid for Render for the back end and hence it may take up to 30 seconds to spin back up
+**Please note I haven't paid for Render for the back end and hence it may take up to 30 seconds to spin back up*
 
 Selling your car is bittersweet. On the one hand, that means you're probably getting something newer and shinier than the one sitting out front. On the other hand, you have to spend an hour trying to find that manila folder full of receipts that you kept over the years detailing the maintenance records of your car.
 
