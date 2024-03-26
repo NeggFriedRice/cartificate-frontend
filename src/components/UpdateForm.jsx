@@ -24,21 +24,18 @@ const UpdateForm = ({ addUpdate, user }) => {
     let { name, value } = event.target
     setActivity({...activity,
       [name]: value})
-      console.log(activity)
-    console.log(activity)
   }
   
   async function submitHandler(event) {
     event.preventDefault()
     activity.date = activity.date
     await addUpdate(activity)
-    console.log(activity)
     nav('/')
   }
 
   function showUpdates(event) {
     event.preventDefault()
-    console.log(activity)
+
   }
 
   const inputFormat = 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 text-setPurpleLight lg:mb-4 mt-4'

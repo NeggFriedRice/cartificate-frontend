@@ -17,7 +17,6 @@ export default function Login({setUser, setIsLoggedIn}) {
             ...previousState,
             [name]: value
         }))
-        console.log(formData)
     }
 
     async function submitHandler(event) {
@@ -31,12 +30,10 @@ export default function Login({setUser, setIsLoggedIn}) {
                 },
                 body: JSON.stringify(formData)
             })
-            await console.log(response)
             if (!response.ok) {
                 throw new Error("Incorrect username or password")
             }
             const data = await response.json()
-            console.log(data)
             sessionStorage.setItem('accessToken', data.accessToken)
             sessionStorage.setItem('user', JSON.stringify(data.user))
             setUser(sessionStorage.getItem('user'))

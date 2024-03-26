@@ -93,8 +93,6 @@ function App() {
       body: JSON.stringify(newUpdate)
     })
     const data = await response.json()
-    console.log(JSON.stringify(newUpdate))
-    console.log(data)
     getUpdates()
     } catch (err) {
       console.log(err)

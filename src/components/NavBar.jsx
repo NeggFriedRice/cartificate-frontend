@@ -15,10 +15,6 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
     navigate('/')
   } 
 
-  function getUser() {
-    console.log(user)
-  }
-
   const navbarFormat = "text-white px-2 lg:text-[1.5rem] lg:px-6 lg:py-2 transition-all duration-300 hover:text-red-200 hover:scale-105"
 
   return (

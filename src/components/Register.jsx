@@ -18,7 +18,6 @@ export default function Register() {
             ...previousState,
             [name]: value
         }))
-        console.log(formData)
     }
 
     async function submitHandler(event) {
@@ -45,7 +44,6 @@ export default function Register() {
                 body: JSON.stringify(formData)
             })
             if (response.ok) {
-                console.log("User successfully registered")
                 navigate('/login')
             }
         } catch (error) {
