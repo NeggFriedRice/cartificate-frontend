@@ -31,7 +31,9 @@ export default function Login({setUser, setIsLoggedIn}) {
                 body: JSON.stringify(formData)
             })
             if (!response.ok) {
-                throw new Error("Incorrect username or password")
+                alert("Incorrect username or password")
+                return
+
             }
             const data = await response.json()
             sessionStorage.setItem('accessToken', data.accessToken)

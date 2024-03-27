@@ -114,7 +114,7 @@ function App() {
       <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
-          <Route path='/' key="showUpdate" element={<ShowUpdate user={user} filtered={filtered}/>}></Route>
+          <Route path='/' key="showUpdate" element={<ShowUpdate isLoggedIn={isLoggedIn} filtered={filtered}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate} user={user}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
           <Route path='/updates/edit/:id' element={<EditWrapper />} />

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { animationSlide } from './animation'
 import HowToUse from './HowToUse'
 
-const ShowUpdate = ({ filtered }) => {
+const ShowUpdate = ({ filtered, isLoggedIn }) => {
 
   const [showUpdate, setShowUpdate] = useState(true)
 
@@ -30,7 +30,7 @@ const ShowUpdate = ({ filtered }) => {
           <ul>
             {!filtered || filtered.length == 0 ?
               <>
-              <Intro/>
+              {!isLoggedIn ? <Intro/> : <HowToUse />}
               </>
             :
             filtered.map((update, index) => 

@@ -37,8 +37,9 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates}) => {
             <motion.div
             key="add"
             initial={{opacity: 0, y:'-100%'}}
-            animate={{opacity: 1, y: 0}}
+            animate={{opacity: 1, y: 0 }}
             transition={{ delay:0.5, duration: 0.3}}
+            whileTap={{ scale: 0.9}}
             exit={{ opacity: 0, y:'-100%'}}>
             <Link to="/updates/new">
               <button className={navbarFormat}>Add</button>
