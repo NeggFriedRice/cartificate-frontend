@@ -10,7 +10,6 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
     const navigate = useNavigate()
     const [entry, setEntry] = useState("")
     const [userID, setUserID] = useState(false)
-    const userObject = JSON.parse(user)
 
 
     function dateMod(date) {
@@ -25,7 +24,7 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
 
     function checkId() {
         try {
-            if(userObject._id == entry.createdBy) {
+            if(user._id == entry.createdBy) {
                 setUserID(true)
             }
         } catch (error) {

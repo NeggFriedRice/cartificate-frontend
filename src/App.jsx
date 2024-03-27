@@ -11,6 +11,8 @@ import Register from './components/Register'
 import EditForm from './components/EditForm'
 import { AnimatePresence } from 'framer-motion'
 import HowToUse from './components/HowToUse'
+import Profile from './components/Profile'
+import EditProfile from './components/EditProfile'
 
 
 function App() {
@@ -18,9 +20,21 @@ function App() {
   const location = useLocation()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
+  const [profile, setProfile] = useState(null)
   const [deleted, setDeleted] = useState(false)
   const [edited, setEdited] = useState(false)
   const [filtered, setFiltered] = useState(null)
+
+  async function getProfile() {
+    const user = JSON.parse(sessionStorage.getItem('user'))
+    try {
+      await fetch(import.meta.env.VITE_BACKEND_API_URL+`/profile/${user._id}`)
+      .then(response => response.json())
+      .then(profile => setProfile(profile))
+    } catch (err) {
+      return
+    }
+  }
 
   async function getUpdates() {
     await fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates')
@@ -28,20 +42,14 @@ function App() {
     .then(updates => filterUpdates(updates))
   }
 
-  function getUser() {
-    const user = sessionStorage.getItem('user')
-    setUser(user)
-  }
-
-  const userObject = JSON.parse(user)
-
   function filterByUser(update) {
-    if (update.createdBy == userObject._id) {
+    
+    if (user && update.createdBy == user._id) {
       return true
     }
   }
 
-  async function filterUpdates(updates) {
+  function filterUpdates(updates) {
     try {
       const filteredUpdates = updates.filter(filterByUser)
       setFiltered(filteredUpdates)
@@ -50,9 +58,20 @@ function App() {
     }
   }
 
+  function getUser() {
+    const userInfo = sessionStorage.getItem("user")
+    setUser(JSON.parse(userInfo))
+    console.log(user)
+  }
+
+  useEffect(() => {
+    getUser()
+    getUpdates()
+  }, [isLoggedIn])
+
   useEffect(() => {
       getUpdates()
-      getUser()
+      getProfile()
     }, [deleted, edited, user])
 
   async function deleteUpdate(id) {
@@ -73,14 +92,13 @@ function App() {
 
   // Add new upate to database
   async function addUpdate(content) {
-    const user = JSON.parse(sessionStorage.getItem('user'))
     // Create new entry object from content data
     const newUpdate = {
       activity: content.activity,
       date: content.date,
       cost: content.cost,
       notes: content.notes,
-      createdBy: user
+      createdBy: user._id
     }
     
     // Send post request to server
@@ -111,14 +129,16 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>
+      <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates} profile={profile} setProfile={setProfile}/>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
-          <Route path='/' key="showUpdate" element={<ShowUpdate isLoggedIn={isLoggedIn} filtered={filtered}/>}></Route>
+          <Route path='/' key="showUpdate" element={<ShowUpdate getUpdates={getUpdates} isLoggedIn={isLoggedIn} filtered={filtered}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate} user={user}/>}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
           <Route path='/updates/edit/:id' element={<EditWrapper />} />
-          <Route path='/login' key="logIn" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>} />
+          <Route path='/login' key="logIn" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path='/profile' element={<Profile getProfile={getProfile} profile={profile}/>}/>
+          <Route path='/profile/update' element={<EditProfile user={user} getProfile={getProfile} profile={profile}/>}/>
           <Route path='/register' element={<Register />} />
           <Route path='/info' element={<HowToUse />} />
         </Routes>

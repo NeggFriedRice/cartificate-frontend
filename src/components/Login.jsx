@@ -38,12 +38,13 @@ export default function Login({setUser, setIsLoggedIn}) {
             const data = await response.json()
             sessionStorage.setItem('accessToken', data.accessToken)
             sessionStorage.setItem('user', JSON.stringify(data.user))
-            setUser(sessionStorage.getItem('user'))
+            setUser(JSON.parse(sessionStorage.getItem('user')))
             setIsLoggedIn(true)
+            
             
             navigate('/')
         } catch (error) {
-            console.log(error)
+            alert(error)
         }
     }
 
