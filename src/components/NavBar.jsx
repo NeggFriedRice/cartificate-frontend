@@ -35,7 +35,7 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates, profile, setProfile})
               <button className={navbarFormat}>CARtificate</button>
             </Link>
             <AnimatePresence>
-            {profile && 
+            {user && 
             <motion.div
             key="add"
             initial={{opacity: 0, y:'-100%'}}
@@ -51,7 +51,7 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates, profile, setProfile})
           </div>
           <div className="flex">
           <AnimatePresence mode="wait">
-            {!profile && 
+            {!user && 
             <motion.div
             key="loginsignup"
             className="absolute right-[10px] top-[10px]"
@@ -70,7 +70,7 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates, profile, setProfile})
             {/* <button type="button" onClick={getUser}>Get User details</button> */}
           </div>
           <AnimatePresence mode="wait">
-            {profile && 
+            {user && 
             <motion.div
             key="signOut"
             className="absolute right-[20px] top-[10px]"
@@ -79,7 +79,7 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates, profile, setProfile})
             exit={{ opacity: 0, y:'-100%', x: 0, transition: {delay: 0.5, duration: 0.3}}}>
               <button type="button" onClick={logOut} className={navbarFormat}>Sign out</button>
               <Link to="/profile">
-               <button  className="text-white px-2 mx-2 bg-slate-700 rounded-lg lg:text-[1.5rem] lg:px-6 lg:py-2 transition-all duration-300 hover:text-slate-400">{profile.username}</button>
+               <button  className="text-white px-2 mx-2 bg-slate-700 rounded-lg lg:text-[1.5rem] lg:px-6 lg:py-2 transition-all duration-300 hover:text-slate-400">{user.username}</button>
               </Link>
             </motion.div>}
           </AnimatePresence>
