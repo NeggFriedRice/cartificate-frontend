@@ -3,32 +3,21 @@ import { useNavigate } from 'react-router-dom'
 import { animationSlide } from './animation'
 import { motion } from 'framer-motion'
 
-const EditProfile = ({ getProfile, profile}) => {
+const EditProfile = ({ getUser, getProfile, profile, user}) => {
 
   const nav = useNavigate()
 
-  useEffect(() => {
-		getProfile()
-	}, [])
-
-  let initialVehicle = {
-    brand: "",
-    model: "",
-    year: "",
-    registration: "",
-    VIN: "",
-  }
-
-  let [vehicle, setVehicle] = useState(profile.vehicle)
+  const [vehicle, setVehicle] = useState(user.vehicle)
 
   function changeHandler(event) {
     let { name, value } = event.target
     setVehicle({...vehicle,
       [name]: value})
+    console.log(vehicle)
   }
 
   async function updateVehicle(vehicle) {
-    const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+`/profile/${profile._id}/update`, {
+    const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+`/profile/${user._id}/update`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -40,6 +29,7 @@ const EditProfile = ({ getProfile, profile}) => {
   async function submitHandler(event) {
     event.preventDefault()
     await updateVehicle(vehicle)
+    await getUser()
     nav('/')
   }
 

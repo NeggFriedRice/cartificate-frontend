@@ -58,10 +58,15 @@ function App() {
     }
   }
 
-  function getUser() {
+  async function getUser() {
     const userInfo = sessionStorage.getItem("user")
-    setUser(JSON.parse(userInfo))
-    console.log(user)
+    try {
+      await fetch(import.meta.env.VITE_BACKEND_API_URL+`/profile/${user._id}`)
+      .then(response => response.json())
+      .then(profile => setUser(profile))
+    } catch (err) {
+      return
+    }
   }
 
   useEffect(() => {
@@ -138,8 +143,8 @@ function App() {
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
           <Route path='/updates/edit/:id' element={<EditWrapper />} />
           <Route path='/login' key="logIn" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path='/profile' element={<Profile getProfile={getProfile} profile={profile}/>}/>
-          <Route path='/profile/update' element={<EditProfile user={user} getProfile={getProfile} profile={profile}/>}/>
+          <Route path='/profile' element={<Profile getUser={getUser} getProfile={getProfile} profile={profile} user={user}/>}/>
+          <Route path='/profile/update' element={<EditProfile user={user} getUser={getUser} getProfile={getProfile} profile={profile}/>}/>
           <Route path='/register' element={<Register />} />
           <Route path='/info' element={<HowToUse />} />
         </Routes>

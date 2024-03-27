@@ -24,6 +24,7 @@ const UpdateForm = ({ addUpdate, user }) => {
     let { name, value } = event.target
     setActivity({...activity,
       [name]: value})
+      console.log(activity)
   }
   
   async function submitHandler(event) {
