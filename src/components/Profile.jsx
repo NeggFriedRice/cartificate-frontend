@@ -3,12 +3,6 @@ import { Link } from 'react-router-dom'
 
 export default function Profile({getProfile, profile}) {
 
-	console.log(profile)
-
-	useEffect(() => {
-		getProfile()
-	}, [])
-
 	return (
 		<>
 		<div className="my-8 p-4 bg-setPeach rounded-lg text-setPurpleDark">

@@ -67,6 +67,7 @@ function App() {
   useEffect(() => {
     getUser()
     getUpdates()
+    getProfile()
   }, [isLoggedIn])
 
   useEffect(() => {
