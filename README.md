@@ -6,29 +6,37 @@ You can find the deployed app [here](https://cartificate.vercel.app/)
 
 Selling your car is bittersweet. On the one hand, that means you're probably getting something newer and shinier than the one sitting out front. On the other hand, you have to spend an hour trying to find that manila folder full of receipts that you kept over the years detailing the maintenance records of your car.
 
-You don't want to do it, but you know you could tack on an extra 10% to your asking price if you had that folder.
 
 There's where CARtificate comes in. A light weight web app that lets you log your activity on the go.
 
-Type in your activity, the cost and any extra notes and submit and you're done! You now have an easy to find, easy to read diary of what you've done to your cars over the years.
+Type in your activity, the cost and any extra notes and submit and you're done! You now have an easy to find, easy to read diary of what you've done to your car over the years.
 
 ### How to use
 
 Register an account using a username and a password and start adding in your maintenance records, easy as that!
+
+### Features
+- Create your own profile
+- Add your vehicle details to your profile so you never forget
+- Add/update/delete maintenance records
+- Download your entries to an Excel file
 
 ### Things to come
 
 - Add image functionality to upload receipts
 
 ### Tech Stack
+
 - HTML, CSS, JavaScript, React
 - Tailwind CSS, Framer-motion, React router dom
 
 ## Deployment
+
 - Front end: Vercel
 - Back end: Render
 
 ### Screenshots
+
 <div style="display: flex">
 <img src="./src/assets/cart-updates.png" height="600"/>
 <img src="./src/assets/cart-single-update.png" height="600"/>
