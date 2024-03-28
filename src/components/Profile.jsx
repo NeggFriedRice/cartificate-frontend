@@ -1,16 +1,26 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Profile({getUser, getProfile, profile, user}) {
 
+	const [loading, setLoading] = useState(false)
+
+	async function checkLoad() {
+		if (!user) {
+			setLoading(false)
+		} 
+		else {
+			setLoading(true)
+		}
+	}
+
 	useEffect(() => {
-		getUser()
-		getProfile()
-		console.log(user)
-	}, [])
+		checkLoad()
+	}, [user])
 
 	return (
 		<>
+		{ loading &&
 		<div className="my-8 p-4 bg-setPeach rounded-lg text-setPurpleDark">
 		<p>Username: {user.username}</p>
 		<p>Brand: {user.vehicle.brand}</p>
@@ -22,6 +32,7 @@ export default function Profile({getUser, getProfile, profile, user}) {
 			<Link to="/profile/update">Edit</Link>
 		</button>
 		</div>
+		}
 		</>
 	)
 }

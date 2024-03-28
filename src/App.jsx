@@ -59,9 +59,10 @@ function App() {
   }
 
   async function getUser() {
-    const userInfo = sessionStorage.getItem("user")
+    const userInfo = JSON.parse(sessionStorage.getItem("user"))
+    console.log(JSON.parse(sessionStorage.getItem("user")))
     try {
-      await fetch(import.meta.env.VITE_BACKEND_API_URL+`/profile/${user._id}`)
+      await fetch(import.meta.env.VITE_BACKEND_API_URL+`/profile/${userInfo._id}`)
       .then(response => response.json())
       .then(profile => setUser(profile))
     } catch (err) {
@@ -72,12 +73,10 @@ function App() {
   useEffect(() => {
     getUser()
     getUpdates()
-    getProfile()
-  }, [isLoggedIn])
+  }, [])
 
   useEffect(() => {
       getUpdates()
-      getProfile()
     }, [deleted, edited, user])
 
   async function deleteUpdate(id) {

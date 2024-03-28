@@ -43,11 +43,14 @@ export default function Intro(key) {
     initial="hidden"
     animate={{ y: 0, opacity: 1, transition: {delay: 1.5, duration: 0.1, type: 'spring', stiffness: 200 }}}
     exit="exit">
-    <Link to="/info">
       <div className="animate-floatxs transition-all duration-700 flex justify-center py-4 mt-24 bg-[#b9d98f] hover:bg-[#D9EDBF] rounded-full shadow-block-sm hover:shadow-block-smmd shadow-setPurpleDark hover:shadow-setPurpleDark w-[250px]">
-              <p className="text-setPurpleDark lg:text-[1.25rem] ">How to use</p>
+      <Link to="/info">
+        <div className="w-64 flex justify-center">
+          <p className="text-setPurpleDark lg:text-[1.25rem] ">How to use</p>
+        </div>
+      </Link>
           </div>
-    </Link>
+
     </motion.div>
     </>
   )
