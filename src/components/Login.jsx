@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { animationSlide } from './animation.js'
 
@@ -76,7 +76,9 @@ export default function Login({setUser, setIsLoggedIn}) {
                             </div>
                         </div>
                         <div>
-                            <a href="/register" className="text-setPurpleLight underline">Don't have an account? Register here!</a>
+                            <Link to='/register'>
+                            <p className="text-setPurpleLight underline">Don't have an account? Register here!</p>
+                            </Link>
                         </div>
                         <div className="flex justify-center">
                             <button type="submit" className="flex w-[50%] justify-center rounded-md transition-all duration-700 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm hover:shadow-block-smmd shadow-gray-600 hover:shadow-gray-600 animate-floatxs">Sign in</button>
