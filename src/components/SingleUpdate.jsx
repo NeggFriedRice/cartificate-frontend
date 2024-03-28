@@ -28,7 +28,7 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
                 setUserID(true)
             }
         } catch (error) {
-            alert("Authorisation failed; you may have tried to access an entry that you didn't create!")
+            return
         }
     }
 
