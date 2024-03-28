@@ -73,7 +73,7 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates, profile, setProfile})
             {user && 
             <motion.div
             key="signOut"
-            className="absolute right-[20px] top-[10px]"
+            className="absolute right-[20px] top-[8px]"
             initial={{opacity: 0, y:'-100%'}}
             animate={{opacity: 1, y: 0, transition: {delay: 0.5, duration: 0.3}}}
             exit={{ opacity: 0, y:'-100%', x: 0, transition: {delay: 0.5, duration: 0.3}}}>
