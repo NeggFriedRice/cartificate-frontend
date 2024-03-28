@@ -60,7 +60,6 @@ function App() {
 
   async function getUser() {
     const userInfo = JSON.parse(sessionStorage.getItem("user"))
-    console.log(JSON.parse(sessionStorage.getItem("user")))
     try {
       await fetch(import.meta.env.VITE_BACKEND_API_URL+`/profile/${userInfo._id}`)
       .then(response => response.json())

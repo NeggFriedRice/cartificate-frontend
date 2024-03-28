@@ -24,7 +24,6 @@ const UpdateForm = ({ addUpdate, user }) => {
     let { name, value } = event.target
     setActivity({...activity,
       [name]: value})
-      console.log(activity)
   }
   
   async function submitHandler(event) {
@@ -36,7 +35,6 @@ const UpdateForm = ({ addUpdate, user }) => {
 
   function showUpdates(event) {
     event.preventDefault()
-
   }
 
   const inputFormat = 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 text-setPurpleLight lg:mb-4 mt-4'

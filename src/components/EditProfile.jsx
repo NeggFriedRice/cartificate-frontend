@@ -13,7 +13,6 @@ const EditProfile = ({ getUser, getProfile, profile, user}) => {
     let { name, value } = event.target
     setVehicle({...vehicle,
       [name]: value})
-    console.log(vehicle)
   }
 
   async function updateVehicle(vehicle) {

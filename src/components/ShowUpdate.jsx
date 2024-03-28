@@ -23,7 +23,6 @@ const ShowUpdate = ({ filtered, isLoggedIn }) => {
     return date.split('T')[0]
   }
 
-  console.log(filtered)
   return (
     <>
     <div className="flex justify-center">
