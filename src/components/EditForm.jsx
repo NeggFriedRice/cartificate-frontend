@@ -2,32 +2,34 @@ import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useNavigate } from 'react-router-dom'
-import { animationSlide } from './animation'
+import { animationSlide } from '../utils/animation'
 import { motion } from 'framer-motion'
+
 
 const EditForm = ({ id, setEdited }) => {
 
-	const nav = useNavigate()
-	const currentDate = new Date().toISOString().split('T')[0]
-	const [date, setDate] = useState(new Date())
 	const [activity, setActivity] = useState(null)
+	const nav = useNavigate()
 
+	useEffect(() => {
+        getSingleUpdate()
+    }, [])
+
+	// Single update getter
 	async function getSingleUpdate() {
         await fetch(import.meta.env.VITE_BACKEND_API_URL+`/updates/${id}`)
         .then(response => response.json())
         .then(data => setActivity(data))
     }
 
-    useEffect(() => {
-        getSingleUpdate()
-    }, [])
-
+	// Form input change handler
 	function changeHandler(event) {
 		let { name, value } = event.target
 		setActivity({...activity,
 		[name]: value})
 	}
 
+	// Update entry in database
 	async function updateEntry(activity) {
 		const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+`/updates/${id}`, {
 			method: "PUT",
@@ -43,15 +45,11 @@ const EditForm = ({ id, setEdited }) => {
 		event.preventDefault()
 		activity.date = activity.date
 		await updateEntry(activity)
-
 		setEdited(previousState => !previousState)
 		nav('/')
 	}
 
-	function showUpdates(event) {
-		event.preventDefault()
-	}
-
+	// Styling
 	const inputFormat = 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 text-setPurpleLight lg:mb-4 mt-4'
 	const headingFormat = 'block mb-2 mt-4 text-sm font-medium text-setPurpleDark text-[1.25rem] lg:text-[1.5rem]'
 

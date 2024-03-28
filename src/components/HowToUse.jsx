@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { animationSlide } from './animation'
+import { animationSlide } from '../utils/animation'
 import { Link } from 'react-router-dom'
+
 
 export default function HowToUse() {
   return (

@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import Intro from './Intro'
 import { motion } from 'framer-motion'
-import { animationSlide } from './animation'
+import { animationSlide } from '../utils/animation'
 import HowToUse from './HowToUse'
+
 
 const ShowUpdate = ({ filtered, isLoggedIn }) => {
 
+  // Date modifier to format ISO date format stored in database
   function dateMod(date) {
     return date.split('T')[0]
   }
@@ -15,8 +17,10 @@ const ShowUpdate = ({ filtered, isLoggedIn }) => {
     <div className="flex justify-center">
       <div className="w-[350px] lg:w-[750px] text-md p-4">
           <ul>
+            {/* Check if any entries are coming through, or if entries list is empty */}
             {!filtered || filtered.length == 0 ?
               <>
+              {/* If no entries, or empty entries list, and not logged in, show Intro component; else, if no entries, or empty entries list and user is logged in, show HowToUse component */}
               {!isLoggedIn ? <Intro/> : <HowToUse />}
               </>
             :

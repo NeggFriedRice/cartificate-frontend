@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function Unauthorised() {
   return (
     <div className="text-[26px] py-16">

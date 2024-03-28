@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import UpdateForm from './components/UpdateForm'
-import { BrowserRouter, Routes, Route, useParams, useLocation } from 'react-router-dom'
+import { Routes, Route, useParams, useLocation } from 'react-router-dom'
 import ShowUpdate from './components/ShowUpdate'
 import NavBar from './components/NavBar'
 import Login from './components/Login'
@@ -20,21 +20,9 @@ function App() {
   const location = useLocation()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState(null)
-  const [profile, setProfile] = useState(null)
   const [deleted, setDeleted] = useState(false)
   const [edited, setEdited] = useState(false)
   const [filtered, setFiltered] = useState(null)
-
-  async function getProfile() {
-    const user = JSON.parse(sessionStorage.getItem('user'))
-    try {
-      await fetch(import.meta.env.VITE_BACKEND_API_URL+`/profile/${user._id}`)
-      .then(response => response.json())
-      .then(profile => setProfile(profile))
-    } catch (err) {
-      return
-    }
-  }
 
   async function getUpdates() {
     await fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates')

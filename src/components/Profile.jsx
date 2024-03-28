@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { animationSlide } from './animation'
+import { animationSlide } from '../utils/animation'
+
 
 export default function Profile({ user, setUser, setIsLoggedIn, getUpdates }) {
 
-	const [loading, setLoading] = useState(false)
 	const navigate = useNavigate()
+	// Loading state awaiting user info to load
+	const [loading, setLoading] = useState(false)
 
+	// Check if user info loaded function
 	async function checkLoad() {
 		if (!user) {
 			setLoading(false)
@@ -17,15 +20,20 @@ export default function Profile({ user, setUser, setIsLoggedIn, getUpdates }) {
 		}
 	}
 
+	// Log out function
 	async function logOut() {
+		// Clear user info from sessionStorage
 		sessionStorage.clear()
+		// Set user state to null
 		setUser(null)
+		// Set isLoggedIn state to false
 		setIsLoggedIn(false)
+		// Re-check for updates; should return nothing
 		getUpdates()
 		navigate('/')
 		} 
 	
-
+	// Run user info is loaded check when user state changes
 	useEffect(() => {
 		checkLoad()
 	}, [user])

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Unauthorised from './Unauthorised'
 import { motion } from 'framer-motion'
-import { animationSlide } from './animation'
+import { animationSlide } from '../utils/animation'
 
 
 const SingleUpdate = ({ id, deleteUpdate, user }) => {
@@ -11,17 +11,19 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
     const [entry, setEntry] = useState("")
     const [userID, setUserID] = useState(false)
 
-
+    // Date modifier to format ISO date format stored in database
     function dateMod(date) {
         return date.split('T')[0]
       }
 
+    // Single update getter, using ID as criteria
     async function getSingleUpdate() {
         await fetch(import.meta.env.VITE_BACKEND_API_URL+`/updates/${id}`)
         .then(response => response.json())
         .then(data => setEntry(data))
     }
 
+    // Security gateway - Check if selected update was created by logged in user
     function checkId() {
         try {
             if(user._id == entry.createdBy) {
@@ -32,19 +34,23 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
         }
     }
 
+    // Get single update on component mount
     useEffect(() => {
         getSingleUpdate()
     }, [])
 
+    // When entry state changes, trigger security gateway to verify user is looking at their own entry
     useEffect(() => {
         checkId()
     }, [entry])
 
+    // Delete function
     function deleteHandler() {
        deleteUpdate(id)
         navigate('/')
     }
 
+    // Navigate to entry edit route
     function navToEdit() {
         navigate(`/updates/edit/${id}`)
     }

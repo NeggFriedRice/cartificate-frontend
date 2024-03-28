@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { animationSlide } from './animation.js'
+import { animationSlide } from '../utils/animation.js'
+
 
 export default function Login({setUser, setIsLoggedIn}) {
 
@@ -11,6 +12,7 @@ export default function Login({setUser, setIsLoggedIn}) {
         password: ""
     })
 
+    // Input change handler
     function changeHandler(event) {
         const { name, value } = event.target
         setFormData((previousState) => ({
@@ -19,6 +21,7 @@ export default function Login({setUser, setIsLoggedIn}) {
         }))
     }
 
+    // Send login details to back end
     async function submitHandler(event) {
         event.preventDefault()
         // Make a call to backend with the form data
@@ -33,15 +36,12 @@ export default function Login({setUser, setIsLoggedIn}) {
             if (!response.ok) {
                 alert("Incorrect username or password")
                 return
-
             }
             const data = await response.json()
             sessionStorage.setItem('accessToken', data.accessToken)
             sessionStorage.setItem('user', JSON.stringify(data.user))
             setUser(JSON.parse(sessionStorage.getItem('user')))
             setIsLoggedIn(true)
-            
-            
             navigate('/')
         } catch (error) {
             alert(error)

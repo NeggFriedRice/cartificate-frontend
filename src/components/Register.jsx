@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { animationSlide } from './animation.js'
+import { animationSlide } from '../utils/animation.js'
 import { motion } from 'framer-motion'
+
 
 export default function Register() {
 
@@ -12,6 +13,7 @@ export default function Register() {
         confirmPassword: ""
     })
 
+    // Input form change handler
     function changeHandler(event) {
         const { name, value } = event.target
         setFormData((previousState) => ({
@@ -20,20 +22,19 @@ export default function Register() {
         }))
     }
 
+    // Submit form handler function
     async function submitHandler(event) {
         event.preventDefault()
         if (formData.password !== formData.confirmPassword) {
             alert("Your passwords are still not matching!")
             return
         }
-
         // Make a call to backend
         const checkUserExists = await fetch(import.meta.env.VITE_BACKEND_API_URL+`/auth/users/${formData.username}`)
         if (checkUserExists.status == 200) {
             alert("Username already in use")
             return
         }
-
         // Make a call to backend with the form data
         try {
             const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+'/auth/register', {

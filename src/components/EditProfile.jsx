@@ -1,20 +1,24 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { animationSlide } from './animation'
+import { animationSlide } from '../utils/animation'
 import { motion } from 'framer-motion'
+
 
 const EditProfile = ({ getUser, user}) => {
 
   const nav = useNavigate()
-
+  // Set input form to user's current vehicle information
   const [vehicle, setVehicle] = useState(user.vehicle)
 
+
+  // Input change handler
   function changeHandler(event) {
     let { name, value } = event.target
     setVehicle({...vehicle,
       [name]: value})
   }
 
+  // Update user vehicle in database
   async function updateVehicle(vehicle) {
     const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+`/profile/${user._id}/update`, {
       method: 'PUT',
@@ -25,6 +29,7 @@ const EditProfile = ({ getUser, user}) => {
     })
   }
   
+  // Submit form function
   async function submitHandler(event) {
     event.preventDefault()
     await updateVehicle(vehicle)
@@ -32,6 +37,7 @@ const EditProfile = ({ getUser, user}) => {
     nav('/profile')
   }
 
+  // Styling
   const inputFormat = 'bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-full focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 text-setPurpleLight lg:mb-4 mt-4'
   const headingFormat = 'block mb-2 mt-4 text-sm font-medium text-setPurpleDark text-[1.25rem] lg:text-[1.5rem]'
 
