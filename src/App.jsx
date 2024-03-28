@@ -133,10 +133,10 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates} filtered={filtered}/>
+      <NavBar user={user} filtered={filtered}/>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
-          <Route path='/' key="showUpdate" element={<ShowUpdate getUpdates={getUpdates} isLoggedIn={isLoggedIn} filtered={filtered}/>}></Route>
+          <Route path='/' key="showUpdate" element={<ShowUpdate isLoggedIn={isLoggedIn} filtered={filtered}/>}></Route>
           <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate} />}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
           <Route path='/updates/edit/:id' element={<EditWrapper />} />
