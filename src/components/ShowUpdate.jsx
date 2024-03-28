@@ -1,23 +1,10 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import Intro from './Intro'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { animationSlide } from './animation'
 import HowToUse from './HowToUse'
 
 const ShowUpdate = ({ filtered, isLoggedIn }) => {
-
-  const [showUpdate, setShowUpdate] = useState(true)
-
-  function checkToShow() {
-    if (filtered) {
-      setShowUpdate(true)
-    }
-  }
-
-  useEffect(() => {
-    checkToShow()
-  }, [])
 
   function dateMod(date) {
     return date.split('T')[0]

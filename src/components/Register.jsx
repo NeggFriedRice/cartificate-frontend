@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { animationSlide } from './animation.js'
 import { motion } from 'framer-motion'

@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { animationSlide } from './animation'
 import { motion } from 'framer-motion'
 
-const EditProfile = ({ getUser, getProfile, profile, user}) => {
+const EditProfile = ({ getUser, user}) => {
 
   const nav = useNavigate()
 

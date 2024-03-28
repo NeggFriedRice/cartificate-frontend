@@ -133,16 +133,16 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates} profile={profile} setProfile={setProfile}/>
+      <NavBar user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates} filtered={filtered}/>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
           <Route path='/' key="showUpdate" element={<ShowUpdate getUpdates={getUpdates} isLoggedIn={isLoggedIn} filtered={filtered}/>}></Route>
-          <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate} user={user}/>}></Route>
+          <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate} />}></Route>
           <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
           <Route path='/updates/edit/:id' element={<EditWrapper />} />
           <Route path='/login' key="logIn" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path='/profile' element={<Profile getUser={getUser} getProfile={getProfile} profile={profile} user={user}/>}/>
-          <Route path='/profile/update' element={<EditProfile user={user} getUser={getUser} getProfile={getProfile} profile={profile}/>}/>
+          <Route path='/profile' element={<Profile user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>}/>
+          <Route path='/profile/update' element={<EditProfile user={user} getUser={getUser} />}/>
           <Route path='/register' element={<Register />} />
           <Route path='/info' element={<HowToUse />} />
         </Routes>

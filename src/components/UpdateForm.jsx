@@ -5,11 +5,9 @@ import { useNavigate } from 'react-router-dom'
 import { animationSlide } from './animation'
 import { motion } from 'framer-motion'
 
-const UpdateForm = ({ addUpdate, user }) => {
+const UpdateForm = ({ addUpdate }) => {
 
   const nav = useNavigate()
-  const currentDate = new Date().toISOString().split('T')[0]
-  const [date, setDate] = useState(new Date())
 
   let initialEntry = {
     activity: "",

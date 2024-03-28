@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import { animationSlide } from './animation'
 import { Link } from 'react-router-dom'
@@ -23,6 +22,9 @@ export default function HowToUse() {
                     </li>
                     <li>
                         <p>Click submit!</p>
+                    </li>
+                    <li>
+                        <p>You also have the option of adding your vehicle details in your profile in the top right hand corner.</p>
                     </li>
                 </ul>
                 <p className="py-8">You can go back and edit or delete any entries that you have submitted at any time, happy tracking ~</p>

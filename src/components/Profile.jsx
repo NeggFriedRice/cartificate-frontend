@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { animationSlide } from './animation'
 
-export default function Profile({getUser, getProfile, profile, user}) {
+export default function Profile({ user, setUser, setIsLoggedIn, getUpdates }) {
 
 	const [loading, setLoading] = useState(false)
+	const navigate = useNavigate()
 
 	async function checkLoad() {
 		if (!user) {
@@ -15,6 +16,15 @@ export default function Profile({getUser, getProfile, profile, user}) {
 			setLoading(true)
 		}
 	}
+
+	async function logOut() {
+		sessionStorage.clear()
+		setUser(null)
+		setIsLoggedIn(false)
+		getUpdates()
+		navigate('/')
+		} 
+	
 
 	useEffect(() => {
 		checkLoad()
@@ -30,7 +40,10 @@ export default function Profile({getUser, getProfile, profile, user}) {
 		exit={animationSlide.exit}
 		className="my-8 p-4">
 			<div className="">
-				<h1 className="bg-[#f5fda9] rounded-lg text-setPurpleDark p-4 text-[1.5rem] shadow-block-sm hover:shadow-block-smmd transition-all duration-700 font-bold">{user.username}</h1>
+				<div className="bg-[#f5fda9] rounded-lg text-setPurpleDark p-4 text-[1.5rem] shadow-block-sm hover:shadow-block-smmd transition-all duration-700">
+				<h1 className=" font-bold">{user.username}</h1>
+				<button type="button" onClick={logOut} className="bg-blue-500 hover:bg-blue-400 text-white text-[1rem] transition-all duration-700 px-2 rounded-lg mt-4">Sign out</button>
+				</div>
 			<div className="bg-[#fad19b] rounded-lg text-setPurpleDark p-4 my-4 text-[1.25rem] shadow-block-sm hover:shadow-block-smmd transition-all duration-700">
 				<div className="">
 					<p><span className="font-bold">Brand:</span> {user.vehicle.brand}</p>

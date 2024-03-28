@@ -1,23 +1,11 @@
-import { MotionConfig } from 'framer-motion'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import ExportToExcel from '../utils/ExportToExcel'
 
 
-const NavBar = ({user, setUser, setIsLoggedIn, getUpdates, profile, setProfile}) => {
-
-  const navigate = useNavigate()
-
-  async function logOut() {
-    sessionStorage.clear()
-    setUser(null)
-    setProfile(null)
-    setIsLoggedIn(false)
-    getUpdates()
-    navigate('/')
-  } 
+const NavBar = ({user, filtered }) => {
 
   const navbarFormat = "text-white px-2 lg:text-[1.5rem] lg:px-6 lg:py-2 transition-all duration-300 hover:text-red-200"
-
 
   return (
     <motion.div
@@ -77,11 +65,14 @@ const NavBar = ({user, setUser, setIsLoggedIn, getUpdates, profile, setProfile})
             initial={{opacity: 0, y:'-100%'}}
             animate={{opacity: 1, y: 0, transition: {delay: 0.5, duration: 0.3}}}
             exit={{ opacity: 0, y:'-100%', x: 0, transition: {delay: 0.5, duration: 0.3}}}>
-              <button type="button" onClick={logOut} className={navbarFormat}>Sign out</button>
+              <div className="relative">
+              <ExportToExcel excelData={filtered} />
               <Link to="/profile">
                <button  className="text-white px-2 mx-2 bg-slate-700 rounded-lg lg:text-[1.5rem] lg:px-6 lg:py-2 transition-all duration-300 hover:text-slate-400">{user.username}</button>
               </Link>
+              </div>
             </motion.div>}
+            
           </AnimatePresence>
         </div>
       </nav>
