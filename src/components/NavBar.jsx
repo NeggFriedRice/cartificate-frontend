@@ -5,22 +5,26 @@ import ExportToExcel from '../utils/ExportToExcel'
 
 const NavBar = ({user, filtered }) => {
 
-  const navbarFormat = "text-white px-2 lg:text-[1.5rem] lg:px-6 lg:py-2 transition-all duration-300 hover:text-red-200"
+  const navbarFormat = "text-white px-4 lg:text-[1.5rem] lg:px-6 py-2 lg:py-4 bg-setPurpleDark rounded-[50px] mx-2"
 
   return (
     <motion.div
     key="navbar"
     style={{ position: 'relative'}}
     initial={{ y: '-130%', opacity: 0}}
-    animate={{ y: 0, opacity: 1}}
-    transition={{ delay: 0.5, duration: 0.5 }}
+    animate={{ y: 0, opacity: 1, transition: { delay: 0.5, duration: 0.5 }}}
     >
     <div className="flex justify-center">
-      <nav className="w-[80vw] lg:w-[800px] lg:h-[55px] bg-setPurpleLight rounded-b-[25px] shadow-block-sm shadow-setPurpleDark" role="navigation">
+      <nav className="w-[80vw] lg:w-[800px] lg:h-[55px] " role="navigation">
         <div className="justify-between py-2 px-4 text-sm relative">
           <div className="flex">
             <Link to="/">
-              <button className={navbarFormat}>CARtificate</button>
+              <motion.button className={navbarFormat}
+              whileHover={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9, opacity: 0.5, transition: { duration: 0.1 }}}
+              animate={{ transition: { delay: 0, duration: 0.1 } }}>
+                CARtificate
+              </motion.button>
             </Link>
             <AnimatePresence>
             {user && 
@@ -32,7 +36,12 @@ const NavBar = ({user, filtered }) => {
             whileTap={{ scale: 0.9}}
             exit={{ opacity: 0, y:'-100%'}}>
             <Link to="/updates/new">
-              <button className={navbarFormat}>Add</button>
+              <motion.button className={navbarFormat}
+              whileHover={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9, opacity: 0.5, transition: { duration: 0.1 }}}
+              animate={{ transition: { delay: 0, duration: 0.1 } }}>
+                Add
+              </motion.button>
             </Link>
             </motion.div>}
             </AnimatePresence>
@@ -48,10 +57,22 @@ const NavBar = ({user, filtered }) => {
             exit={{ opacity: 0, y: '-100%'}}
             >
               <Link to="/login">
-                <button  className={navbarFormat}>Login</button>
+                <motion.button 
+                className={navbarFormat}
+                whileHover={{ scale: 0.95 }}
+                whileTap={{ scale: 0.9, opacity: 0.5, transition: { duration: 0.1 }}}
+                animate={{ transition: { delay: 0, duration: 0.1 } }}>
+                  Login
+                </motion.button>
               </Link>
               <Link to="/register">
-               <button  className={navbarFormat}>Sign up</button>
+                <motion.button  
+                className={navbarFormat}
+                whileHover={{ scale: 0.95 }}
+                whileTap={{ scale: 0.9, opacity: 0.5, transition: { duration: 0.1 }}}
+                animate={{ transition: { delay: 0, duration: 0.1 } }}>
+                Sign up
+                </motion.button>
               </Link>
             </motion.div>}
           </AnimatePresence>
@@ -68,7 +89,13 @@ const NavBar = ({user, filtered }) => {
               <div className="relative">
               <ExportToExcel excelData={filtered} />
               <Link to="/profile">
-               <button  className="text-white px-2 mx-2 bg-slate-700 rounded-lg lg:text-[1.5rem] lg:px-6 lg:py-2 transition-all duration-300 hover:text-slate-400">{user.username}</button>
+              <motion.button  
+              className="text-white py-2 px-4 bg-slate-700 rounded-[50px] lg:text-[1.5rem] lg:px-6 lg:py-4"
+              whileHover={{ scale: 0.95 }}
+              whileTap={{ scale: 0.9, opacity: 0.5, transition: { duration: 0.1 }}}
+              animate={{ transition: { delay: 0, duration: 0.1 } }}>
+                {user.username}
+              </motion.button>
               </Link>
               </div>
             </motion.div>}

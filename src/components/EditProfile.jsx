@@ -47,7 +47,7 @@ const EditProfile = ({ getUser, user}) => {
     initial={animationSlide.hidden}
     animate={animationSlide.visible}
     exit={animationSlide.exit}>
-    <div className="flex justify-center bg-[#fce7bb] my-8 rounded-[15px] shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700">
+    <div className="flex justify-center bg-[#e6fffe] my-8 rounded-[15px] shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700">
       <form onSubmit={submitHandler} className="w-[100%] px-8">
         <div className="my-4">
         <h2 className="text-[2rem] text-setPurpleLight font-semibold">Edit vehicle details</h2>

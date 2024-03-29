@@ -48,7 +48,7 @@ export default function Profile({ user, setUser, setIsLoggedIn, getUpdates }) {
 		exit={animationSlide.exit}
 		className="my-8 p-4">
 			<div className="">
-				<div className="bg-[#f5fda9] rounded-lg text-setPurpleDark p-4 text-[1.5rem] shadow-block-sm hover:shadow-block-smmd transition-all duration-700 flex justify-between items-center">
+				<div className="bg-setPeach rounded-r-lg rounded-tl-lg text-setPurpleDark p-4 text-[1.5rem] shadow-block-sm hover:shadow-block-smmd transition-all duration-700 flex justify-between items-center">
 				<div>
 					<h1 className=" font-bold">{user.username}</h1>
 				</div>
@@ -56,7 +56,7 @@ export default function Profile({ user, setUser, setIsLoggedIn, getUpdates }) {
 					<button type="button" onClick={logOut} className="bg-blue-500 hover:bg-blue-400 text-white text-[1rem] transition-all duration-700 px-4 py-1 rounded-lg self-start">Sign out</button>
 				</div>
 				</div>
-			<div className="bg-[#fad19b] rounded-lg text-setPurpleDark p-4 my-4 text-[1.25rem] shadow-block-sm hover:shadow-block-smmd transition-all duration-700 flex justify-between">
+			<div className="bg-setPeach rounded-r-lg rounded-bl-lg text-setPurpleDark p-4 my-4 text-[1.25rem] shadow-block-sm hover:shadow-block-smmd transition-all duration-700 flex justify-between">
 				<div className="">
 					<p><span className="font-bold">Brand:</span> {user.vehicle.brand}</p>
 					<p><span className="font-bold">Model:</span> {user.vehicle.model}</p>

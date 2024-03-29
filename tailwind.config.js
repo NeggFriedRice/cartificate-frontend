@@ -70,8 +70,8 @@ export default {
         setPurpleDarkHover: '#795999',
         setPurpleLight: '#9F5F80',
         setCoral: '#FF8474',
-        setPeach: '#FFC996',
-        setPeachLight: '#f5cfab',
+        setPeach: '#ffe5cc',
+        setPeachLight: '#FFC996',
         setRed: '#f7b2c5'
       }
   },
