@@ -46,8 +46,8 @@ export default function Profile({ user, setUser, setIsLoggedIn, getUpdates }) {
 		initial={animationSlide.hidden}
 		animate={animationSlide.visible}
 		exit={animationSlide.exit}
-		className="my-8 p-4">
-			<div className="">
+		className="my-8 p-4 flex justify-center">
+			<div className="w-[85%]">
 				<div className="bg-setPeach rounded-r-lg rounded-tl-lg text-setPurpleDark p-4 text-[1.5rem] shadow-block-sm hover:shadow-block-smmd transition-all duration-700 flex justify-between items-center">
 				<div>
 					<h1 className=" font-bold">{user.username}</h1>

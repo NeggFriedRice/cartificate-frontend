@@ -60,8 +60,9 @@ const EditForm = ({ id, setEdited }) => {
 			key="editForm"
 			initial={animationSlide.hidden}
 			animate={animationSlide.visible}
-			exit={animationSlide.exit}>
-				<div className="flex justify-center bg-[#e6fffe] my-8 rounded-[15px] shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700">
+			exit={animationSlide.exit}
+			className="flex justify-center">
+				<div className="flex justify-center bg-[#e6fffe] my-8 rounded-[15px] shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark transition-all duration-700 w-[85%]">
 				<form onSubmit={submitHandler} className="w-[100%] px-8">
 					<div className="my-4">
 					<h2 className="text-[2rem] text-setPurpleLight font-semibold">Update entry</h2>
