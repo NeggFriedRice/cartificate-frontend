@@ -5,7 +5,7 @@ import ExportToExcel from '../utils/ExportToExcel'
 
 const NavBar = ({user, filtered }) => {
 
-  const navbarFormat = "text-white px-4 lg:text-[1.5rem] lg:px-6 py-2 lg:py-4 bg-setPurpleDark rounded-[50px] mx-2"
+  const navbarFormat = "text-white px-4 lg:text-[1.5rem] lg:px-6 py-2 lg:py-4 bg-setPurpleDark rounded-[50px] lg:mx-2"
 
   return (
     <motion.div
@@ -15,7 +15,7 @@ const NavBar = ({user, filtered }) => {
     animate={{ y: 0, opacity: 1, transition: { delay: 0.5, duration: 0.5 }}}
     >
     <div className="flex justify-center">
-      <nav className="w-[80vw] lg:w-[800px] lg:h-[55px] " role="navigation">
+      <nav className="w-[80vw] max-xs:w-[100vw] lg:w-[800px] lg:h-[55px]" role="navigation">
         <div className="justify-between py-2 px-4 text-sm relative">
           <div className="flex">
             <Link to="/">
@@ -86,7 +86,7 @@ const NavBar = ({user, filtered }) => {
             initial={{opacity: 0, y:'-100%'}}
             animate={{opacity: 1, y: 0, transition: {delay: 0.5, duration: 0.3}}}
             exit={{ opacity: 0, y:'-100%', x: 0, transition: {delay: 0.5, duration: 0.3}}}>
-              <div className="relative">
+              <div className="flex">
               <ExportToExcel excelData={filtered} />
               <Link to="/profile">
               <motion.button  

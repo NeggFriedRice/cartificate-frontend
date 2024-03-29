@@ -17,9 +17,9 @@ export default function ExportToExcel({ excelData }) {
   return (
     <button onClick={(e) => exportToExcel()}>
         <motion.img 
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9, opacity: 0.5}}
-        src="excel.svg" className="h-[35px] absolute right-[180px] top-[6px] max-lg:h-[22px] max-lg:right-[100px] max-lg:top-[6px]" />
+        whileHover={{ scale: 0.9 }}
+        whileTap={{ scale: 0.85, opacity: 0.5}}
+        src="download.svg" className="h-[35px] max-lg:h-[22px] mx-2" />
     </button>
   )
 }

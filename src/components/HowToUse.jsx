@@ -14,6 +14,7 @@ export default function HowToUse() {
                 <ul className="list-disc px-8 text-setPurpleDark">
                     <li>
                         <Link to="/register"><p className="underline">Register an account</p></Link>
+                        <p>If you've already got an account, great! Keep reading</p>
                     </li>
                     <li>
                         <p>Click Add to create your first entry</p>
