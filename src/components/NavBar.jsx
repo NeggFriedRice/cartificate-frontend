@@ -5,7 +5,7 @@ import ExportToExcel from '../utils/ExportToExcel'
 
 const NavBar = ({user, filtered }) => {
 
-  const navbarFormat = "text-white px-4 lg:text-[1.5rem] lg:px-6 py-2 lg:py-4 bg-setPurpleDark rounded-[50px] lg:mx-2"
+  const navbarFormat = "text-white px-4 lg:text-[1.5rem] lg:px-6 py-2 lg:py-4 bg-setPurpleDark rounded-[50px] lg:mx-2 mx-1"
 
   return (
     <motion.div
