@@ -29,7 +29,8 @@ const ShowUpdate = ({ filtered, isLoggedIn }) => {
             key={index}
             initial={animationSlide.hidden}
             animate={animationSlide.visible}
-            exit={animationSlide.exit}>
+            exit={animationSlide.exit}
+            whileTap={{ scale: 0.9 }}>
               <div className="animate-floatxs">
                 <Link to={`updates/${update._id}`}>
                   <li className="py-3">

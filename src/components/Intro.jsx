@@ -28,7 +28,8 @@ export default function Intro(key) {
     variants={containerVariants}
     initial="hidden"
     animate="visible"
-    exit="exit">
+    exit="exit"
+    whileTap={{ scale: 0.95 }}>
     <Link to="/login">
         <div className="animate-float transition-all duration-700 flex justify-center py-8 mt-24 bg-setPeach hover:bg-setPeachLight rounded-full shadow-block-md hover:shadow-block-lg shadow-setPurpleDark hover:shadow-setPurpleDark">
             <p className="text-setPurpleDark lg:text-[1.5rem]">Get your maintenance started!</p>
@@ -43,8 +44,9 @@ export default function Intro(key) {
     variants={containerVariants}
     initial="hidden"
     animate={{ y: 0, opacity: 1, transition: {delay: 1.5, duration: 0.1, type: 'spring', stiffness: 200 }}}
-    exit="exit">
-      <div className="animate-floatxs transition-all duration-700 flex justify-center py-4 mt-24 bg-[#b9d98f] hover:bg-[#D9EDBF] rounded-full shadow-block-sm hover:shadow-block-smmd shadow-setPurpleDark hover:shadow-setPurpleDark w-[250px]">
+    exit="exit"
+    whileTap={{ scale: 0.95 }}>
+      <div className="animate-floatxs transition-all duration-700 flex justify-center py-4 mt-24 bg-[#D9EDBF] hover:bg-[#b9d98f] rounded-full shadow-block-sm hover:shadow-block-smmd shadow-setPurpleDark hover:shadow-setPurpleDark w-[250px]">
       <Link to="/info">
         <div className="w-64 flex justify-center">
           <p className="text-setPurpleDark lg:text-[1.25rem] ">How to use</p>

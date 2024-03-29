@@ -91,9 +91,11 @@ export default function Register() {
                         <div className="">
                         {formData.password !== formData.confirmPassword && <p className="text-red-500 text-sm">Passwords don't match!</p>}
                         </div>
-                        <div className="flex justify-center">
+                        <motion.div 
+                        whileTap={{ scale: 0.9 }}
+                        className="flex justify-center">
                             <button type="submit" className="flex w-[50%] justify-center rounded-md transition-all duration-700 bg-violet-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-violet-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 mb-4 lg:text-[1.25rem] lg:py-3 shadow-block-sm hover:shadow-block-smmd shadow-gray-600 hover:shadow-gray-600 animate-floatxs">Sign up</button>
-                        </div>
+                        </motion.div>
                         </form>
                     </div>
                 </div>

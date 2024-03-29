@@ -67,8 +67,18 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
                         <div className="grid grid-cols-3 py-4">
                             <h3 className="text-[1.5rem] lg:text-[2rem] text-setPurpleDark col-span-2">{entry.activity}</h3>
                             <div className="flex flex-wrap">
-                                <button type="button" className="bg-teal-500 hover:bg-teal-400 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1  transition-all duration-700" onClick={navToEdit}>Edit</button>
+                                <motion.div
+                                whileTap={{ scale: 0.9 }}>
+                                <button
+                                type="button" 
+                                className="bg-teal-500 hover:bg-teal-400 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1  transition-all duration-700" onClick={navToEdit}>
+                                    Edit
+                                </button>
+                                </motion.div>
+                                <motion.div
+                                whileTap={{ scale: 0.9 }}>
                                 <button type="button" className="bg-red-500 hover:bg-red-400 w-[65px] rounded-lg px-2 text-sm h-[30px] mx-4 my-1 transition-all duration-700" onClick={deleteHandler}>Delete</button>
+                                </motion.div>
                             </div>
                         </div>
                         <div className="text-setPurpleDark py-4 text-[1.25rem] lg:text-[1.5rem]">

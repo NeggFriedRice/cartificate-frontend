@@ -52,9 +52,10 @@ export default function Profile({ user, setUser, setIsLoggedIn, getUpdates }) {
 				<div>
 					<h1 className=" font-bold">{user.username}</h1>
 				</div>
-				<div>
+				<motion.div
+				whileTap={{ scale: 0.9 }}>
 					<button type="button" onClick={logOut} className="bg-blue-500 hover:bg-blue-400 text-white text-[1rem] transition-all duration-700 px-4 py-1 rounded-lg self-start">Sign out</button>
-				</div>
+				</motion.div>
 				</div>
 			<div className="bg-setPeach rounded-r-lg rounded-bl-lg text-setPurpleDark p-4 my-4 text-[1.25rem] shadow-block-sm hover:shadow-block-smmd transition-all duration-700 flex justify-between">
 				<div className="">
@@ -64,11 +65,12 @@ export default function Profile({ user, setUser, setIsLoggedIn, getUpdates }) {
 					<p><span className="font-bold">Registration:</span> {user.vehicle.registration}</p>
 					<p><span className="font-bold">VIN:</span> {user.vehicle.vin}</p>
 				</div>
-				<div>
+				<motion.div
+				whileTap={{ scale: 0.9 }}>
 					<button className="bg-teal-500 hover:bg-teal-400 text-white text-[1rem] transition-all duration-700 px-4 py-1 rounded-lg">
 						<Link to="/profile/update">Edit</Link>
 					</button>
-				</div>
+				</motion.div>
 			</div>
 			</div>
 		</motion.div>
