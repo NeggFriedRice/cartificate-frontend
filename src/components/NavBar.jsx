@@ -27,7 +27,7 @@ const NavBar = ({user, filtered }) => {
                 initial={{ opacity: 0, x: 350 }}
                 animate={{ opacity: 1, x: 0, transition: { delay: 2, duration: 2, ease: "easeInOut" }}}
                 transitionEnd={{ display: 'none'}}
-                className="absolute z-1 top-[30px] max-lg:top-[18px]">🚗
+                className="absolute z-1 top-[30px] max-lg:top-[21px]">🚗
                 </motion.p>
               </motion.button>
             </Link>
