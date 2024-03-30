@@ -93,7 +93,7 @@ const EditForm = ({ id, setEdited }) => {
 					</div>
 					<h2 className={headingFormat}>Extra notes</h2>
 					<div className="flex flex-col my-4">
-					<textarea className="bg-white mb-4 p-2 text-setPurpleLight border-solid border-[1px] border-gray-300" rows="10" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
+					<textarea className="bg-white mb-4 p-2 text-setPurpleLight border-solid border-[1px] border-gray-300" rows="5" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
 					<motion.div
 					whileTap={{ scale: 0.9 }}
 					className="flex justify-center">

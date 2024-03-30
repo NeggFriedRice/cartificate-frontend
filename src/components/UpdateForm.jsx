@@ -76,7 +76,7 @@ const UpdateForm = ({ addUpdate }) => {
           </div>
           <h2 className={headingFormat}>Extra notes</h2>
           <div className="flex flex-col my-4">
-            <textarea className="border-solid border-[1px] p-2 border-gray-300 bg-white mb-4 text-setPurpleLight" rows="10" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
+            <textarea className="border-solid border-[1px] p-2 border-gray-300 bg-white mb-4 text-setPurpleLight" rows="5" name="notes" value={activity.notes} onChange={changeHandler}></textarea>
             <motion.div 
             whileTap={{ scale: 0.9 }}
             className="flex justify-center">
