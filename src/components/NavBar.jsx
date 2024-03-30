@@ -5,7 +5,7 @@ import ExportToExcel from '../utils/ExportToExcel'
 
 const NavBar = ({user, filtered }) => {
 
-  const navbarFormat = "text-white px-4 lg:text-[1.5rem] lg:px-6 py-2 lg:py-4 bg-setPurpleDark rounded-[50px] lg:mx-2 mx-1"
+  const navbarFormat = "text-white px-4 lg:text-[1.5rem] lg:px-6 py-2 lg:py-4 bg-setPurpleDark rounded-[50px] lg:mx-2 mx-1 relative"
 
   return (
     <motion.div
@@ -21,9 +21,14 @@ const NavBar = ({user, filtered }) => {
             <Link to="/">
               <motion.button className={navbarFormat}
               whileHover={{ scale: 0.95 }}
-              whileTap={{ scale: 0.9, opacity: 0.5, transition: { duration: 0.1 }}}
-              animate={{ transition: { delay: 0, duration: 0.1 } }}>
+              whileTap={{ scale: 0.9, opacity: 0.5, transition: { delay: 0, duration: 0.1 }}}>
                 CARtificate
+                <motion.p 
+                initial={{ opacity: 0, x: 350 }}
+                animate={{ opacity: 1, x: 0, transition: { delay: 2, duration: 2, ease: "easeInOut" }}}
+                transitionEnd={{ display: 'none'}}
+                className="absolute z-1 top-[30px] max-lg:top-[18px]">🚗
+                </motion.p>
               </motion.button>
             </Link>
             <AnimatePresence>
