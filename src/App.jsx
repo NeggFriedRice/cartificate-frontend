@@ -13,6 +13,7 @@ import { AnimatePresence } from 'framer-motion'
 import HowToUse from './components/HowToUse'
 import Profile from './components/Profile'
 import EditProfile from './components/EditProfile'
+import axios from 'axios'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   const [deleted, setDeleted] = useState(false)
   const [edited, setEdited] = useState(false)
   const [filtered, setFiltered] = useState(null)
+  const [image, setImage] = useState(null)
 
   async function getUpdates() {
     await fetch(import.meta.env.VITE_BACKEND_API_URL+'/updates')
@@ -83,14 +85,16 @@ function App() {
   }
 
   // Add new upate to database
-  async function addUpdate(content) {
+  async function addUpdate(content, event) {
     // Create new entry object from content data
     const newUpdate = {
       activity: content.activity,
       date: content.date,
       cost: content.cost,
       notes: content.notes,
-      createdBy: user._id
+      createdBy: user._id,
+      img: "",
+      imgUrl: ""
     }
     
     // Send post request to server
@@ -103,10 +107,38 @@ function App() {
       body: JSON.stringify(newUpdate)
     })
     const data = await response.json()
-    getUpdates()
+    // Extra newly created update to attach file to
+    const updateId = data._id
+    await imageUpload(updateId, event)
+
+    // getUpdates()
     } catch (err) {
       console.log(err)
     }
+  }
+
+  async function imageUpload(updateId, event) {
+    // Extract attached image from form
+    event.preventDefault()
+    const file = event.target.elements.file_input.files[0]
+    if (file) {
+      const formData = new FormData()
+      formData.append('image', file)
+      setImage(formData)
+  
+      try {
+        const response = axios.post(import.meta.env.VITE_BACKEND_API_URL+`/image/update/${updateId}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+      } catch (err) {
+        console.log(err)
+      }
+    } else {
+      return
+    }
+
   }
 
   const UpdateWrapper = ({deleteUpdate}) => {

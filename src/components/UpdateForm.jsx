@@ -14,7 +14,9 @@ const UpdateForm = ({ addUpdate }) => {
     activity: "",
     date: "",
     cost: "",
-    notes: ""
+    notes: "",
+    img: "",
+    imgUrl:""
   }
 
   let [activity, setActivity] = useState(initialEntry)
@@ -29,8 +31,12 @@ const UpdateForm = ({ addUpdate }) => {
   // Submit form handler function
   async function submitHandler(event) {
     event.preventDefault()
+    if (!activity.date) {
+      alert("Add a date for your entry!")
+      return
+    }
     activity.date = activity.date
-    await addUpdate(activity)
+    await addUpdate(activity, event)
     nav('/')
   }
 
