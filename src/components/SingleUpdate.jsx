@@ -10,11 +10,13 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
     const navigate = useNavigate()
     const [entry, setEntry] = useState("")
     const [userID, setUserID] = useState(false)
+    const [image, setImage] = useState(false)
 
     // Date modifier to format ISO date format stored in database
     function dateMod(date) {
         return date.split('T')[0]
       }
+
 
     // Single update getter, using ID as criteria
     async function getSingleUpdate() {
@@ -33,6 +35,7 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
             return
         }
     }
+
 
     // Get single update on component mount
     useEffect(() => {
@@ -86,12 +89,19 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
                             {entry && <h3>Date: <span className="text-setPurpleLight">{dateMod(entry.date)}</span></h3>}
                             <p>Notes:</p>
                             <p><span className="text-setPurpleLight">{entry.notes}</span></p>
+                            <p>Receipt:</p>
                         </div>
                         <div className="flex justify-center">
-                            <img 
-                            src={entry.imgUrl}
-                            className="h-[500px] max-lg:h-[200px] rounded-lg"
-                            />
+                            { entry.imgUrl && 
+                            <a href={entry.imgUrl} target="_blank">
+                                <motion.img
+                                whileHover={{ scale: 0.95 }}
+                                whileTap={{ scale: 0.9, opacity: 0.5, transition: { delay: 0, duration: 0.1 }}}
+                                src={entry.imgUrl}
+                                className="h-[500px] max-lg:h-[200px] rounded-lg"
+                                />
+                            </a> }
+
                         </div>
                     </li> : <Unauthorised />}
                 </ul>
