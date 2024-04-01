@@ -87,6 +87,12 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
                             <p>Notes:</p>
                             <p><span className="text-setPurpleLight">{entry.notes}</span></p>
                         </div>
+                        <div className="flex justify-center">
+                            <img 
+                            src={entry.imgUrl}
+                            className="h-[500px] max-lg:h-[200px] rounded-lg"
+                            />
+                        </div>
                     </li> : <Unauthorised />}
                 </ul>
             </div>

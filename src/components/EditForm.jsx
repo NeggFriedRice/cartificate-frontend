@@ -6,7 +6,7 @@ import { animationSlide } from '../utils/animation'
 import { motion } from 'framer-motion'
 
 
-const EditForm = ({ id, setEdited }) => {
+const EditForm = ({ id, setEdited, imageUpload }) => {
 
 	const [activity, setActivity] = useState(null)
 	const nav = useNavigate()
@@ -31,6 +31,7 @@ const EditForm = ({ id, setEdited }) => {
 
 	// Update entry in database
 	async function updateEntry(activity) {
+		try {
 		const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+`/updates/${id}`, {
 			method: "PUT",
 			headers: {
@@ -38,13 +39,17 @@ const EditForm = ({ id, setEdited }) => {
 			},
 			body: JSON.stringify(activity)
 		})
-		const data = await response.json()		
+		const data = await response.json()
+		} catch (err) {
+			console.log(err)
+		}	
 	}
 	
 	async function submitHandler(event) {
 		event.preventDefault()
 		activity.date = activity.date
 		await updateEntry(activity)
+		await imageUpload(id, event)
 		setEdited(previousState => !previousState)
 		nav('/')
 	}

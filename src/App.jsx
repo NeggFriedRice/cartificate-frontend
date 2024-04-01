@@ -110,6 +110,7 @@ function App() {
     // Extra newly created update to attach file to
     const updateId = data._id
     await imageUpload(updateId, event)
+    getUpdates()
 
     // getUpdates()
     } catch (err) {
@@ -148,7 +149,7 @@ function App() {
 
   const EditWrapper = () => {
     const { id } = useParams()
-    return <EditForm id={id} setEdited={setEdited} />
+    return <EditForm id={id} setEdited={setEdited} imageUpload={imageUpload}/>
   }
 
   return (
