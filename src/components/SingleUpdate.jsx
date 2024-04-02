@@ -101,7 +101,6 @@ const SingleUpdate = ({ id, deleteUpdate, user }) => {
                                 className="h-[500px] max-lg:h-[200px] rounded-lg"
                                 />
                             </a> }
-
                         </div>
                     </li> : <Unauthorised />}
                 </ul>
