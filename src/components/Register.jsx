@@ -68,7 +68,7 @@ export default function Register() {
                         <div>
                             <label className="block text-sm lg:text-[1.25rem] font-medium leading-6 text-setPurpleDark">Username</label>
                             <div className="mt-2">
-                                <input id="email" name="username" onChange={changeHandler} required className="block w-[100%] rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
+                                <input id="email" name="username" onChange={changeHandler} required className="px-2 block w-[100%] rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
                             </div>
                         </div>
 
@@ -77,7 +77,7 @@ export default function Register() {
                                 <label className="block text-sm lg:text-[1.25rem] font-medium leading-6 text-setPurpleDark">Password</label>
                             </div>
                             <div className="mt-2">
-                                <input id="password" name="password" onChange={changeHandler} required className="block w-[100%] rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
+                                <input id="password" name="password" type="password" onChange={changeHandler} required className="px-2 block w-[100%] rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
                                 </div>
                         </div>
                         <div>
@@ -85,7 +85,7 @@ export default function Register() {
                                 <label className="block text-sm lg:text-[1.25rem] font-medium leading-6 text-setPurpleDark">Re-type password</label>
                             </div>
                             <div className="mt-2">
-                                <input id="confirmPassword" name="confirmPassword" onChange={changeHandler} required className="block w-[100%] rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
+                                <input id="confirmPassword" name="confirmPassword" type="password" onChange={changeHandler} required className="px-2 block w-[100%] rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
                                 </div>
                         </div>
                         <div className="">

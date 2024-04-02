@@ -60,11 +60,11 @@ export default function Login({setUser, setIsLoggedIn}) {
                     <h2 className="text-center text-lg lg:text-[1.5rem] lg:mt-8 font-bold leading-9 tracking-tight text-setPurpleDark">Sign in to your account</h2>
                 </div>
                 <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form className="space-y-6 px-4"  onSubmit={submitHandler}>
+                    <form className="space-y-6 px-4" onSubmit={submitHandler}>
                         <div>
                             <label className="block text-sm lg:text-[1.25rem] font-medium leading-6 text-setPurpleDark">Username</label>
                             <div className="mt-2">
-                            <input id="email" name="username" onChange={changeHandler} required className="block w-full rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
+                            <input id="email" name="username" onChange={changeHandler} required className="px-2 block w-full rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
                             </div>
                         </div>
                         <div>
@@ -72,7 +72,7 @@ export default function Login({setUser, setIsLoggedIn}) {
                             <label className="block text-sm lg:text-[1.25rem] font-medium leading-6 text-setPurpleDark">Password</label>
                             </div>
                             <div className="mt-2">
-                            <input id="password" name="password" onChange={changeHandler} required className="block w-full rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
+                            <input id="password" type="password" name="password" onChange={changeHandler} required className="px-2 block w-full rounded-md border-0 py-1.5 text-setPurpleLight shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-violet-600 sm:text-sm sm:leading-6 bg-white" />
                             </div>
                         </div>
                         <div>

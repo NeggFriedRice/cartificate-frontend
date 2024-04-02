@@ -67,9 +67,11 @@ export default function Profile({ user, setUser, setIsLoggedIn, getUpdates }) {
 				</div>
 				<motion.div
 				whileTap={{ scale: 0.9 }}>
-					<button className="bg-teal-500 hover:bg-teal-400 text-white text-[1rem] transition-all duration-700 px-4 py-1 rounded-lg">
-						<Link to="/profile/update">Edit</Link>
-					</button>
+					<Link to="/profile/update">
+						<button className="bg-teal-500 hover:bg-teal-400 text-white text-[1rem] transition-all duration-700 px-4 py-1 rounded-lg">
+							Edit
+						</button>
+					</Link>
 				</motion.div>
 			</div>
 			</div>
