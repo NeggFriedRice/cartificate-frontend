@@ -14,6 +14,7 @@ import HowToUse from './components/HowToUse'
 import Profile from './components/Profile'
 import EditProfile from './components/EditProfile'
 import axios from 'axios'
+import NavBar2 from './components/NavBar2'
 
 
 function App() {
@@ -154,7 +155,7 @@ function App() {
 
   return (
     <>
-      <NavBar user={user} filtered={filtered}/>
+      <NavBar2 user={user} filtered={filtered}/>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
           <Route path='/' key="showUpdate" element={<ShowUpdate isLoggedIn={isLoggedIn} filtered={filtered}/>}></Route>
