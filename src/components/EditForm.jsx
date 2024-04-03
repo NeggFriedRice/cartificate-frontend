@@ -74,7 +74,7 @@ const EditForm = ({ id, setEdited, imageUpload }) => {
 					<h2 className={headingFormat}>Activity type</h2>
 					<input className={inputFormat} type="text" name="activity" placeholder="Oil change, replaced brake rotors" value={activity.activity} onChange={changeHandler}/>
 					</div>
-					<div className="my-4">
+					<div className="my-4 lg:w-[30%] max-lg:[30%]">
 					<label className={headingFormat}>Date</label>
 					<input
 						type='date'
