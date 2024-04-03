@@ -158,15 +158,15 @@ function App() {
       <NavBar2 user={user} filtered={filtered}/>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
-          <Route path='/' key="showUpdate" element={<ShowUpdate isLoggedIn={isLoggedIn} filtered={filtered}/>}></Route>
-          <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate} />}></Route>
-          <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
-          <Route path='/updates/edit/:id' element={<EditWrapper />} />
-          <Route path='/login' key="logIn" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
-          <Route path='/profile' element={<Profile user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>}/>
-          <Route path='/profile/update' element={<EditProfile user={user} getUser={getUser} />}/>
-          <Route path='/register' element={<Register />} />
-          <Route path='/info' element={<HowToUse />} />
+        <Route path='/' key="showUpdate" element={<ShowUpdate isLoggedIn={isLoggedIn} filtered={filtered}/>}></Route>
+        <Route path="/updates/new" element={<UpdateForm addUpdate={addUpdate} />}></Route>
+        <Route path='/updates/:id' element={<UpdateWrapper deleteUpdate={deleteUpdate}/>} />
+        <Route path='/updates/edit/:id' element={<EditWrapper />} />
+        <Route path='/login' key="logIn" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
+        <Route path='/profile' element={<Profile user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn} getUpdates={getUpdates}/>}/>
+        <Route path='/profile/update' element={<EditProfile user={user} getUser={getUser} />}/>
+        <Route path='/register' element={<Register />} />
+        <Route path='/info' element={<HowToUse />} />
         </Routes>
       </AnimatePresence>  
     </>

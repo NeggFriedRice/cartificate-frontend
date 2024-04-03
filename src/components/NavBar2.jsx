@@ -18,7 +18,7 @@ const NavBar2 = ({user, filtered }) => {
   const whileTap = { scale: 0.9, opacity: 0.5, transition: { delay: 0, duration: 0.1 }}
 
   return (
-    <motion.div
+    <div
     key="navbar"
     style={{ position: 'relative'}}
     className="mt-2"
@@ -117,7 +117,7 @@ const NavBar2 = ({user, filtered }) => {
               </Link>
             </motion.div>}
           </AnimatePresence>
-            {/* <button type="button" onClick={getUser}>Get User details</button> */}
+
           </div>
           <AnimatePresence mode="wait">
             {user && 
@@ -150,7 +150,7 @@ const NavBar2 = ({user, filtered }) => {
         </div>
       </nav>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
