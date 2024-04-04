@@ -29,12 +29,7 @@ export default function Register() {
             alert("Your passwords are still not matching!")
             return
         }
-        // Make a call to backend
-        const checkUserExists = await fetch(import.meta.env.VITE_BACKEND_API_URL+`/auth/users/${formData.username}`)
-        if (checkUserExists.status == 200) {
-            alert("Username already in use")
-            return
-        }
+
         // Make a call to backend with the form data
         try {
             const response = await fetch(import.meta.env.VITE_BACKEND_API_URL+'/auth/register', {
@@ -46,6 +41,10 @@ export default function Register() {
             })
             if (response.ok) {
                 navigate('/login')
+            }
+
+            if (response.status == 400) {
+                alert("Username already in use")
             }
         } catch (error) {
             alert(error)
