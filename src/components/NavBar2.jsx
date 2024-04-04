@@ -72,11 +72,12 @@ const NavBar2 = ({user, filtered }) => {
             </div>}
             </AnimatePresence>
           </div>
-          <div className="flex">
-          <AnimatePresence mode="wait">
+          <AnimatePresence>
+            {/* Show login/sign up buttons if user state is null */}
             {!user && 
+            <div className="flex"
+            key="loginsignup">
             <motion.div
-            key="loginsignup"
             className="absolute right-[10px] top-[0px]"
             >
               <Link to="/login">
@@ -115,11 +116,9 @@ const NavBar2 = ({user, filtered }) => {
                   </div>
                 </motion.button>
               </Link>
-            </motion.div>}
-          </AnimatePresence>
-
-          </div>
-          <AnimatePresence mode="wait">
+            </motion.div>
+          </div>}
+          {/* Show username if user state exists */}
             {user && 
             <motion.div
             key="profile"

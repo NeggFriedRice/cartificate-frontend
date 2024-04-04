@@ -10,10 +10,11 @@ export default function ExportToExcel({ excelData }) {
       XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
   
       // Buffer to store the generated Excel file
-      const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-      const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
-      saveAs(blob, "maintenance.xlsx");
-    };
+      const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' })
+      const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' })
+      saveAs(blob, "maintenance.xlsx")
+    }
+
   return (
     <button onClick={exportToExcel}>
       <motion.div

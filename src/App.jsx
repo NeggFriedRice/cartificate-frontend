@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import UpdateForm from './components/UpdateForm'
 import { Routes, Route, useParams, useLocation } from 'react-router-dom'
 import ShowUpdate from './components/ShowUpdate'
-import NavBar from './components/NavBar'
+// import NavBar from './components/NavBar'
 import Login from './components/Login'
 import SingleUpdate from './components/SingleUpdate'
 import Register from './components/Register'
@@ -14,7 +14,6 @@ import HowToUse from './components/HowToUse'
 import Profile from './components/Profile'
 import EditProfile from './components/EditProfile'
 import axios from 'axios'
-import NavBar2 from './components/NavBar2'
 
 
 function App() {
