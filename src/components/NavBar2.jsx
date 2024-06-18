@@ -16,6 +16,7 @@ const NavBar2 = ({user, filtered }) => {
   const transition = { delay: 0.5, duration: 1, type: 'spring', stiffness: 150, damping: 15, ease: 'easeInOut' }
   const exit = { y: 100, opacity: 0}
   const whileTap = { scale: 0.9, opacity: 0.5, transition: { delay: 0, duration: 0.1 }}
+  const whileHover = { scale: 0.95, opacity: 0.85, transition: { delay: 0} }
 
   return (
     <div
@@ -29,7 +30,7 @@ const NavBar2 = ({user, filtered }) => {
           <div className="flex">
             <Link to="/">
               <motion.button className={navbarFormat}
-              whileHover={{ scale: 0.95 }}
+              whileHover={whileHover}
               whileTap={whileTap}
               initial={hideOriginR}
               animate={elShow}
@@ -54,7 +55,7 @@ const NavBar2 = ({user, filtered }) => {
             <div key="add">
               <Link to="/updates/new">
                 <motion.button className={navbarFormat}
-                whileHover={{ scale: 0.95 }}
+                whileHover={whileHover}
                 whileTap={whileTap}
                 initial={hideOriginR}
                 animate={elShow}
@@ -83,7 +84,7 @@ const NavBar2 = ({user, filtered }) => {
               <Link to="/login">
                 <motion.button 
                 className={navbarFormat}
-                whileHover={{ scale: 0.95 }}
+                whileHover={whileHover}
                 whileTap={whileTap}
                 initial={hideOriginL}
                 animate={elShow}
@@ -101,7 +102,7 @@ const NavBar2 = ({user, filtered }) => {
               <Link to="/register">
                 <motion.button  
                 className={navbarFormat}
-                whileHover={{ scale: 0.95 }}
+                whileHover={whileHover}
                 whileTap={whileTap}
                 initial={hideOriginL}
                 animate={elShow}
@@ -128,7 +129,7 @@ const NavBar2 = ({user, filtered }) => {
                 <Link to="/profile">
                   <motion.button  
                   className="text-white bg-slate-700 rounded-[50px] lg:text-[1.5rem]"
-                  whileHover={{ scale: 0.95 }}
+                  whileHover={whileHover}
                   whileTap={whileTap}
                   initial={hideOriginL}
                   animate={elShow}
