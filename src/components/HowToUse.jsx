@@ -14,13 +14,15 @@ export default function HowToUse() {
                 <ul className="list-disc px-8 text-setPurpleDark">
                     <li>
                         <Link to="/register"><p className="underline">Register an account</p></Link>
-                        <p>If you've already got an account, great! Keep reading</p>
+                    </li>
+                    <li>
+                        <p>Sign into your new account</p>
                     </li>
                     <li>
                         <p>Click Add to create your first entry</p>
                     </li>
                     <li>
-                        <p>Fill in the details!</p>
+                        <p>Fill in the details</p>
                     </li>
                     <li>
                         <p>Click submit!</p>
