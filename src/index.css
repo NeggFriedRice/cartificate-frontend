@@ -69,3 +69,9 @@ body {
   }
 }
 
+@font-face {
+  font-family: 'PermanentMarker-Regular';
+  src: url('./src/assets/font/PermanentMarker-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

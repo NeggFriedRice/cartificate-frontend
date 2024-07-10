@@ -36,7 +36,7 @@ const NavBar2 = ({user, filtered }) => {
               animate={elShow}
               transition={transition}
               exit={exit}>
-                <div className={navLabelFormat}>
+                <div className="px-6 py-4 max-lg:px-4 max-lg:py-2 font-[PermanentMarker-Regular]">
                   <motion.p
                   initial={{ opacity: 0 }}
                   animate={textShow}>
